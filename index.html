@@ -10,20 +10,21 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+
 <body>
-  <nav class="white" role="navigation">
+  <nav class="white" role="navigation" id="home">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <a id="logo-container" href="#" class="brand-logo"> <img src="logo.png" alt="HealthTest" height="60" width="60"> </a>
       <ul class="right hide-on-med-and-down">
-		<li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-		<li><a href="#">Contact</a></li>
+		<li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+		<li><a href="#contact">Contact</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-		<li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-		<li><a href="#">Contact</a></li>
+		<li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+		<li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -38,8 +39,8 @@
           <h5 class="header col s12 light">Data Collection and Analysis System for Measuring Physical Fitness</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Register</a>
-		  <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Login</a>
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Register</a>
+		  <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Login</a>
         </div>
         <br><br>
 
@@ -97,13 +98,13 @@
     <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
-  <div class="container">
+  <div class="container" id="about">
     <div class="section">
 
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>About Health Test</h4>
+		  <h4>About Health Test</h4>
           <p class="left-align light">Health Test เป็นระบบบันทึกและวิเคราะห์ผลการทดสอบสมรรถภาพทางกาย โดยการบันทึกผลการทดสอบผ่านแอพพลิเคชันบนมือถือ สามารถประมวลผลและวิเคราะห์สมรรถภาพของผู้เข้าร่วมทดสอบได้อย่างรวดเร็ว ผู้เข้าร่วมทดสอบจึงสามารถทราบผลการทดสอบของตนเองได้ทันที พร้อมทั้งเสนอแนะแนวทางในการเพิ่มสมรรถภาพทางร่างกายให้แก่ผู้เข้าร่วมทดสอบแบบรายบุคคล ผู้เข้าร่วมทดสอบสามารถนำไปปฏิบัติเพื่อพัฒนาและแก้ไขจุดอ่อนทางด้านร่างกายของตนเองจนสามารถมีร่างกายที่สวยงาม ดูดี และสมบูรณ์แข็งแรง</p>
         </div>
       </div>
@@ -123,7 +124,7 @@
     <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
-  <footer class="page-footer teal">
+  <footer class="page-footer teal" id="contact">
     <div class="container">
       <div class="row">
         <div class="col l8 s12">
@@ -134,15 +135,15 @@
         <div class="col l3 s12">
           <h5 class="white-text">Contact</h5>
           <ul>
-            <li><a class="white-text" href="#!">iwing.cpe.ku.ac.th</a></li>
-            <li><a class="white-text" href="#!">edu.ku.ac.th</a></li>
+            <li><a class="white-text" href="http://iwing.cpe.ku.ac.th">http://iwing.cpe.ku.ac.th</a></li>
+            <li><a class="white-text" href="http://edu.ku.ac.th">http://edu.ku.ac.th</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">IWING</a>
+      Made by <a class="brown-text text-lighten-3" href="http://iwing.cpe.ku.ac.th">IWING</a>
       </div>
     </div>
   </footer>
