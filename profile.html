@@ -21,73 +21,44 @@
 		<li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
 		<li><a href="#contact">Contact</a></li>
+		<li><a href="index.html">Logout</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
 		<li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
 		<li><a href="#contact">Contact</a></li>
+		<li><a href="index.html">Logout</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Health Test</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Data Collection and Analysis System for Measuring Physical Fitness</h5>
-        </div>
-        <div class="row center">
-          <a href="register.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Register</a>
-		  <a href="login.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Login</a>
-        </div>
-        <br><br>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="img/background1.jpg" alt="Unsplashed background img 1"></div>
-  </div>
-
-
-  <div class="container">
+  
+  <div class="container" id="about">
     <div class="section">
 
-      <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Quickly evaluate</h5>
-
-            <p class="light">การทดสอบสมรรถภาพทางกายที่ใช้เวลาในการทดสอบเพียงไม่นาน ก็สามารถทราบผลสมรรถภาพของตัวเองอย่างรวดเร็ว พร้อมทั้งยังได้รับคำแนะนำในการพัฒนาร่างกายของตนอีกด้วย โดยใช้เทคโนโลยีช่วยในการวิเคราะห์ผลการประเมิน เพื่อให้มีความรวดเร็ว ถูกต้องแม่นยำ และเป็นไปตามเกณฑ์มาตรฐานสากล </p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Health rank</h5>
-
-            <p class="light">สำหรับการทดสอบเป็นหมู่คณะ ผู้เข้าร่วมทดสอบแต่ละบุคคลจะสามารถทราบว่าตนเองอยู่ในระดับใดของกลุ่มที่เข้าร่วมทดสอบในชุดเดียวกัน นอกจากนี้ยังสามารถทราบแนวโน้มสมรรถภาพโดยรวมของกลุ่มผู้เข้าร่วมทดสอบทั้งกลุ่มได้ว่าอยู่ในเกณฑ์ใด เพื่อหาแนวทางพัฒนาสมรรถภาพร่วมกันเป็นหมู่คณะ</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Workout guideline</h5>
-
-            <p class="light">หลังการทดสอบเสร็จสิ้น ผู้เข้าทดสอบจะได้รับผลวิเคราะห์สมรรถภาพร่างกายของตนเอง พร้อมทั้งได้รับคำแนะนำในการพัฒนาร่างกายในส่วนที่ยังมีข้อบกพร่อง เพื่อให้มีสมรรถภาพร่างกายที่สมบูรณ์ยิ่งขึ้น โดยคำแนะนำจะอ้างอิงจากผลการทดสอบเฉพาะบุคคลนั้นเพื่อให้ได้คำแนะนำที่เหมาะสมกับผู้เข้าทดสอบแต่ละคน</p>
-          </div>
+        <div class="col s12 center">
+          <h3><i class="medium mdi-action-account-box brown-text"> </i></h3>
+		  <h4>Profile</h4>
+          <p class="left-align light"> ข้อมูลสมาชิก</p>
+		  
+			
+			<?php
+				if($_GET){
+					echo $_GET['user'];    		
+				}
+				else{
+					echo "Url has no user";
+				}
+			?>
+		  
         </div>
       </div>
 
     </div>
   </div>
-
+  
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
