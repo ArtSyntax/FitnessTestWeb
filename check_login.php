@@ -7,12 +7,10 @@
 	mysql_connect($servername, $username, $password);
 	mysql_select_db("healthTest");
 	$strSQL = "SELECT * FROM USER WHERE email = '".mysql_real_escape_string($_POST['email'])."' 
-	and password = '".mysql_real_escape_string($_POST['pass'])."'";
+	and password = '".mysql_real_escape_string(md5($_POST['pass']))."'";
 	$objQuery = mysql_query($strSQL);
 	$objResult = mysql_fetch_array($objQuery);
-	
-
-	
+		
 	if(!$objResult)
 	{
 		echo "Username or Password Incorrect!";
@@ -42,7 +40,7 @@
 			$jsonTable = json_encode($rows);
 			//print $jsonTable;
 			
-			header("location:profile.html?user=".$jsonTable);
+			header("location:profile.php?user=".$jsonTable);
 		}
 	}
 	mysql_close();
