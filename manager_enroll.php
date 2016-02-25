@@ -18,19 +18,20 @@
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="index.html" class="brand-logo"> <img src="img/logo.png" alt="HealthTest" height="60" width="60"> </a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="index.html#home">Home</a></li>
-				<li><a href="index.html#about">About</a></li>
+				<li><a href="manager.html">Home</a></li>
+				<li><a href="manager_tests.php">Tests</a></li>
+				<li><a href="manager_stations.php">Stations</a></li>
+				<li><a href="manager_enroll.php">Enrollment</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
-				<li><a href="result.php">Result</a></li>				
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
-				<li><a href="index.html#home">Home</a></li>
-				<li><a href="index.html#about">About</a></li>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="manager.html">Home</a></li>
+				<li><a href="manager_tests.php">Tests</a></li>
+				<li><a href="manager_stations.php">Stations</a></li>
+				<li><a href="manager_enroll.php">Enrollment</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
-				<li><a href="result.php">Result</a></li>				
 			</ul>
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
@@ -40,21 +41,33 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m6 offset-m3">
-				<h2 class="header center teal-text text-lighten-2">Pre-regis</h2>
+				<h2 class="header center teal-text text-lighten-2">Enrollment</h2>
 				<div class="row">
-					<form class="col s12" method="post" action="check_preregis.php">
+					<form class="col s12" method="post" action="enroll.php">
 						<div class="row">
 							<div class="input-field col s12">
 								<input id="testcode" name="testcode" type="text" class="validate">
-								<label for="testcode">Test code</label>
+								<label for="testcode">Test Code</label>
 							</div>
 							<div class="input-field col s12">	
-								<input id="id" name="id" type="text" class="validate">
-								<label for="id">ID</label>
+								<input id="password" name="password" type="password" class="validate">
+								<label for="password">Admin password</label>
 							</div>
-							<div class="input-field col s12">	
+							
+							<div class="col s12 file-field input-field">
+								<div class="btn">
+									<span>File</span>
+									<input type="file" name="fileCSV" id="fileCSV">
+								</div>
+								<div class="file-path-wrapper">
+									<input class="file-path validate" type="text"  placeholder="เลือกไฟล์ .csv">
+								</div>
+							</div>
+							
+							<div class="input-field col s12 center">	
 								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
 							</div>
+							
 						</div>
 					</form>
 				</div>

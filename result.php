@@ -21,89 +21,72 @@
 				<li><a href="index.html#home">Home</a></li>
 				<li><a href="index.html#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
-				<li><a href="result.php">Result</a></li>				
+				<li><a href="preregis.php">Pre-regis</a></li>
+				<li><a href="result.php">Result</a></li>
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
 				<li><a href="index.html#home">Home</a></li>
 				<li><a href="index.html#about">About</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
-				<li><a href="result.php">Result</a></li>				
+				<li><a href="preregis.php">Pre-regis</a></li>
+				<li><a href="result.php">Result</a></li>
 			</ul>
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
 	</nav>
-  
-  
-	<div class="container">
-		<div class="row">
-			<div class="col s12 m6 offset-m3">
-				<h2 class="header center teal-text text-lighten-2">Pre-regis</h2>
-				<div class="row">
-					<form class="col s12" method="post" action="check_preregis.php">
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="testcode" name="testcode" type="text" class="validate">
-								<label for="testcode">Test code</label>
-							</div>
-							<div class="input-field col s12">	
-								<input id="id" name="id" type="text" class="validate">
-								<label for="id">ID</label>
-							</div>
-							<div class="input-field col s12">	
-								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-  
-
-	<div class="container">
+	
+	<div class="container" id="person_result">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 center brown-text">
-					<h4>
-						<?php
-							if($_GET){
-								$host = "localhost";
-								$user = "art";
-								$pass = "art12345678";
-								$dbname="healthTest"; 
-								
-								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-								mysql_select_db($dbname) or die(mysql_error()); 
-								mysql_query("SET NAMES UTF8");
-								$data = mysql_query("SELECT TEST.test_code, STATION.station_name
-										FROM  `TEST` 
-										INNER JOIN  `TEST_STATION` 
-										ON TEST.test_id = TEST_STATION.test_id
-										INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
-										WHERE TEST.test_code = \"".$_GET['testcode']."\"")
-										or die(mysql_error()); 
-										
-								$rows = array();
-								while($r = mysql_fetch_assoc($data)) {
-									$rows[] = $r;
-								}
-								$jsonTable = json_encode($rows);		
-								$json_output = json_decode($jsonTable); 
-								foreach ($json_output as $key)  
-								{	
-									print "{$key->test_code} {$key->station_name}<br>";          
-								} 	
-							}
-						?>
-					</h4>
+				<div class="col s12 center">
+					<h3><i class="medium material-icons brown-text">equalizer</i></h3>
+					<h4>Personal result</h4>
+					<div class="row">
+						<form class="col s12 m6 offset-m3" method="post" action="check_preregis.php">
+							<div class="row">
+								<div class="input-field col s12">
+									<input id="testcode" name="testcode" type="text" class="validate">
+									<label for="testcode">Test code</label>
+								</div>
+								<div class="input-field col s12">	
+									<input id="id" name="id" type="text" class="validate">
+									<label for="id">ID</label>
+								</div>
+								<div class="input-field col s12">	
+									<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
+	<div class="container" id="overall_result">
+		<div class="section">
+			<div class="row">
+				<div class="col s12 center">
+					<h3><i class="medium material-icons brown-text">trending_up</i></h3>
+					<h4>Overall result</h4>
+					
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="container" id="execution">
+		<div class="section">
+			<div class="row">
+				<div class="col s12 center">
+					<h3><i class="medium material-icons brown-text">loop</i></h3>
+					<h4>Execution</h4>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<footer class="page-footer teal" id="contact">
 		<div class="container">
