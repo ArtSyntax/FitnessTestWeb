@@ -45,7 +45,12 @@
 							<div class="input-field col s12">
 								<input id="testcode" name="testcode" type="text" class="validate">
 								<label for="testcode">Test Code</label>
-								
+							</div>
+							<div class="input-field col s12">	
+								<input id="id" name="id" type="text" class="validate">
+								<label for="id">ID</label>
+							</div>
+							<div class="input-field col s12">	
 								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
 							</div>
 						</div>
@@ -59,41 +64,39 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 center">
-					<p class="left-align light"> ข้อมูลผู้ลงทะเบียนล่วงหน้า</p>
-					<?php
-						if($_GET){
-							//echo $_GET['testcode'];    	
-
-							$host = "localhost";
-							$user = "art";
-							$pass = "art12345678";
-							$dbname="healthTest"; 
-							
-							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-							mysql_select_db($dbname) or die(mysql_error()); 
-
-							$data = mysql_query("SELECT TEST.test_code, STATION.station_name
-									FROM  `TEST` 
-									INNER JOIN  `TEST_STATION` 
-									ON TEST.test_id = TEST_STATION.test_id
-									INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
-									WHERE TEST.test_code = \"".$_GET['testcode']."\"")
-									or die(mysql_error()); 
-									
-							$rows   = array();
-							$temp_1 = array();
-							$temp_2 = array();
-							while($r = mysql_fetch_assoc($data)) {
-								$temp_1 = (string)$r['test_code'];
-								$temp_2 = (string)$r['station_name'];
-								$rows[] = array($temp_1,$temp_2);
+				<div class="col s12 center brown-text">
+					<h4>
+						<?php
+							if($_GET){
+								$host = "localhost";
+								$user = "art";
+								$pass = "art12345678";
+								$dbname="healthTest"; 
 								
+								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+								mysql_select_db($dbname) or die(mysql_error()); 
+								mysql_query("SET NAMES UTF8");
+								$data = mysql_query("SELECT TEST.test_code, STATION.station_name
+										FROM  `TEST` 
+										INNER JOIN  `TEST_STATION` 
+										ON TEST.test_id = TEST_STATION.test_id
+										INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
+										WHERE TEST.test_code = \"".$_GET['testcode']."\"")
+										or die(mysql_error()); 
+										
+								$rows = array();
+								while($r = mysql_fetch_assoc($data)) {
+									$rows[] = $r;
+								}
+								$jsonTable = json_encode($rows);		
+								$json_output = json_decode($jsonTable); 
+								foreach ($json_output as $key)  
+								{	
+									print "{$key->test_code} {$key->station_name}<br>";          
+								} 	
 							}
-							$jsonTable = json_encode($rows);
-							print $jsonTable;		
-						}
-					?>
+						?>
+					</h4>
 				</div>
 			</div>
 		</div>
