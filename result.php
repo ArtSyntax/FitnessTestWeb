@@ -36,12 +36,11 @@
 		</div>
 	</nav>
 	
-	<div class="container" id="person_result">
+	<div class="container" id="input">
 		<div class="section">
 			<div class="row">
 				<div class="col s12 center">
-					<h3><i class="medium material-icons brown-text">equalizer</i></h3>
-					<h4>Personal result</h4>
+				<h2 class="header center teal-text text-lighten-2">Test code</h2>
 					<div class="row">
 						<form class="col s12 m6 offset-m3" method="post" action="check_preregis.php">
 							<div class="row">
@@ -51,7 +50,7 @@
 								</div>
 								<div class="input-field col s12">	
 									<input id="id" name="id" type="text" class="validate">
-									<label for="id">ID</label>
+									<label for="id">ID (optional)</label>
 								</div>
 								<div class="input-field col s12">	
 									<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
@@ -59,6 +58,18 @@
 							</div>
 						</form>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="container" id="person_result">
+		<div class="section">
+			<div class="row">
+				<div class="col s12 center">
+					<h3><i class="medium material-icons brown-text">equalizer</i></h3>
+					<h4>Personal result</h4>
+					
 				</div>
 			</div>
 		</div>

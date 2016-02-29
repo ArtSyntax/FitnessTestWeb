@@ -6,11 +6,11 @@
 		
 	move_uploaded_file($_FILES["fileCSV"]["tmp_name"],$_FILES["fileCSV"]["name"]); // Copy/Upload CSV
 
-	$objConnect = mysql_connect($servername, $username, $password) or die("Error Connect to Database"); // Conect to MySQL
+	$objConnect = mysql_connect($servername, $username, $password) or die("Error Connect to Database"); 
 	$objDB = mysql_select_db("healthTest");
 
 	$objCSV = fopen($_FILES["fileCSV"]["name"], "r");
-	while (($objArr = fgetcsv($objCSV, 10000, ",")) !== FALSE) {
+	while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
 		$strSQL = "INSERT INTO healthTest.USER ";
 		$strSQL .="(user_id, id, email, password, gender, birthyear) ";
 		$strSQL .="VALUES ";
@@ -19,7 +19,7 @@
 		$objQuery = mysql_query($strSQL);
 	}
 	fclose($objCSV);
-
+	
 	echo "Upload & Import Done.";
 ?>
 

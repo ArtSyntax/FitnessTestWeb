@@ -41,13 +41,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m6 offset-m3">
-				<h2 class="header center teal-text text-lighten-2">New station</h2>
+				<h2 class="header center teal-text text-lighten-2">Create new station</h2>
 				<div class="row">
-					<form class="col s12" method="post" action="check_preregis.php">
+					<form class="col s12" method="post" action="create_station.php">
 						<div class="row">
 							<div class="input-field col s12">
 								<input id="testname" name="testname" type="text" class="validate">
 								<label for="testname">ชื่อฐานทดสอบ</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="testunit" name="testunit" type="text" class="validate">
+								<label for="testunit">หน่วยที่ใช้</label>
 							</div>
 							<div class="input-field col s12">	
 								<input id="password" name="password" type="password" class="validate">
@@ -73,38 +77,38 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 center brown-text">
+				<div class="col s12 m8 offset-m2 left brown-text">
+					<h2 class="header center teal-text text-lighten-2">Standby stations</h2>
 					<h4>
-						<?php
-							if($_GET){
-								$host = "localhost";
-								$user = "art";
-								$pass = "art12345678";
-								$dbname="healthTest"; 
-								
-								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-								mysql_select_db($dbname) or die(mysql_error()); 
-								mysql_query("SET NAMES UTF8");
-								$data = mysql_query("SELECT TEST.test_code, STATION.station_name
-										FROM  `TEST` 
-										INNER JOIN  `TEST_STATION` 
-										ON TEST.test_id = TEST_STATION.test_id
-										INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
-										WHERE TEST.test_code = \"".$_GET['testcode']."\"")
-										or die(mysql_error()); 
-										
-								$rows = array();
-								while($r = mysql_fetch_assoc($data)) {
-									$rows[] = $r;
-								}
-								$jsonTable = json_encode($rows);		
-								$json_output = json_decode($jsonTable); 
-								foreach ($json_output as $key)  
-								{	
-									print "{$key->test_code} {$key->station_name}<br>";          
-								} 	
+					<?php
+						if($_GET){
+							echo $_GET['station'];    		
+						}
+						else{
+							
+							$host = "localhost";
+							$user = "art";
+							$pass = "art12345678";
+							$dbname="healthTest"; 
+							
+							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+							mysql_select_db($dbname) or die(mysql_error()); 
+							mysql_query("SET NAMES UTF8");
+							$data = mysql_query("SELECT station_name, station_unit FROM STATION")
+									or die(mysql_error()); 
+									
+							$rows = array();
+							while($r = mysql_fetch_assoc($data)) {
+								$rows[] = $r;
 							}
-						?>
+							$jsonTable = json_encode($rows);		
+							$json_output = json_decode($jsonTable); 
+							foreach ($json_output as $key)  
+							{	
+								print "{$key->station_name} ({$key->station_unit})<br>";          
+							} 	
+						}
+					?>
 					</h4>
 				</div>
 			</div>
