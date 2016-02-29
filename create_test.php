@@ -29,12 +29,12 @@
 
 		mysqli_query( $conn, 'SET NAMES "utf8" COLLATE "utf8_general_ci"' );
 		$sql = 
-		"INSERT INTO STATION(station_id, station_name, station_unit)
+		"INSERT INTO TEST(test_id, test_name, test_code)
 		SELECT null,'"
-		.(string)$_POST['stationname'] ."', '"
-		.(string)$_POST['stationunit'] ."'
-		FROM STATION WHERE station_name = '"
-		.(string)$_POST['stationname'] ."' HAVING COUNT(*) = 0";
+		.(string)$_POST['testname'] ."', UPPER(LEFT(UUID(), 6)) AS TCODE
+		FROM TEST 
+		WHERE test_name = '"
+		.(string)$_POST['testname'] ."' HAVING COUNT(*) = 0";
 		
 		if ($conn->query($sql) === TRUE) {
 			echo "New record created successfully";
@@ -44,7 +44,7 @@
 		}
 		$conn->close();
 			
-		header("location:manager_stations.php");
+		header("location:manager_tests.php");
 	}
 	mysql_close();
 ?>

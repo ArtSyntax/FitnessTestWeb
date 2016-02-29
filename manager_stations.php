@@ -46,12 +46,12 @@
 					<form class="col s12" method="post" action="create_station.php">
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="testname" name="testname" type="text" class="validate">
-								<label for="testname">ชื่อฐานทดสอบ</label>
+								<input id="stationname" name="stationname" type="text" class="validate">
+								<label for="stationname">ชื่อฐานทดสอบ</label>
 							</div>
 							<div class="input-field col s12">
-								<input id="testunit" name="testunit" type="text" class="validate">
-								<label for="testunit">หน่วยที่ใช้</label>
+								<input id="stationunit" name="stationunit" type="text" class="validate">
+								<label for="stationunit">หน่วยที่ใช้</label>
 							</div>
 							<div class="input-field col s12">	
 								<input id="password" name="password" type="password" class="validate">
@@ -62,7 +62,7 @@
 								<br>กำหนดเกณฑ์การทดสอบ
 							</div>
 							
-							<div class="input-field col s12">	
+							<div class="input-field col s12 center">	
 								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Create</button>
 							</div>
 							
@@ -80,34 +80,28 @@
 				<div class="col s12 m8 offset-m2 left brown-text">
 					<h2 class="header center teal-text text-lighten-2">Standby stations</h2>
 					<h4>
-					<?php
-						if($_GET){
-							echo $_GET['station'];    		
+					<?php			
+						$host = "localhost";
+						$user = "art";
+						$pass = "art12345678";
+						$dbname="healthTest"; 
+						
+						$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+						mysql_select_db($dbname) or die(mysql_error()); 
+						mysql_query("SET NAMES UTF8");
+						$data = mysql_query("SELECT station_name, station_unit FROM STATION")
+								or die(mysql_error()); 
+								
+						$rows = array();
+						while($r = mysql_fetch_assoc($data)) {
+							$rows[] = $r;
 						}
-						else{
-							
-							$host = "localhost";
-							$user = "art";
-							$pass = "art12345678";
-							$dbname="healthTest"; 
-							
-							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-							mysql_select_db($dbname) or die(mysql_error()); 
-							mysql_query("SET NAMES UTF8");
-							$data = mysql_query("SELECT station_name, station_unit FROM STATION")
-									or die(mysql_error()); 
-									
-							$rows = array();
-							while($r = mysql_fetch_assoc($data)) {
-								$rows[] = $r;
-							}
-							$jsonTable = json_encode($rows);		
-							$json_output = json_decode($jsonTable); 
-							foreach ($json_output as $key)  
-							{	
-								print "{$key->station_name} ({$key->station_unit})<br>";          
-							} 	
-						}
+						$jsonTable = json_encode($rows);		
+						$json_output = json_decode($jsonTable); 
+						foreach ($json_output as $key)  
+						{	
+							print "{$key->station_name} ({$key->station_unit})<br>";          
+						} 	
 					?>
 					</h4>
 				</div>
