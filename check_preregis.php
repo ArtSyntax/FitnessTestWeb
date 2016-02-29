@@ -13,6 +13,7 @@
 	if(!$objResult)
 	{
 		echo "Not found Test Code!";
+		header("location:fail.php");
 	}
 	else
 	{

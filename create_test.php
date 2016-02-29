@@ -17,6 +17,7 @@
 	if(!$objResult)
 	{
 		echo "Error! Don't have permission.";
+		header("location:fail.php");
 	}
 	else
 	{

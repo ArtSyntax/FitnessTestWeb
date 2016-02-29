@@ -14,6 +14,7 @@
 	if(!$objResult)
 	{
 		echo "Username or Password Incorrect!";
+		header("location:fail.php");
 	}
 	else
 	{
