@@ -1,115 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Health Test</title>
-  <link href="img/icon.png" rel="shortcut icon" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<title>Health Test</title>
+	<link href="img/icon.png" rel="shortcut icon" type="image/x-icon">
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-
-        <div class="col s12 m6  offset-m3">
-			<h2 class="header center teal-text text-lighten-2">Register</h2>
-            <div class="row">
-                <form class="col s12" method="post" action="newuser.php">
-				    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="id" name="id" type="text"class="validate">
-                            <label for="id">ID</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" name="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-					
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="pass" name="pass" type="password" class="validate">
-                            <label for="pass">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="repass" type="password" class="validate">
-                            <label for="repass">Confirm Password</label>
-                        </div>
-					</div>		
-								
-					<div class="row">
-						<div class="input-field col s12">
-                            <label >Birth Year</label>
-                        </div>
-						
-						<div class="input-field col s12">
-						  <br>
-						  <p>
-							  <select class="browser-default" name="year" id="year">
-							<option value="" disabled selected>Choose your birth year</option>
-							  </select>
-
-						  </p>
-						  </p>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m6  offset-m3">
+				<h2 class="header center teal-text text-lighten-2">Register</h2>
+				<div class="row">
+					<form class="col s12" method="post" action="newuser.php">
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="id" name="id" type="text"class="validate">
+								<label for="id">ID</label>
+							</div>
 						</div>
-                    </div>	
-
-					<div class="row">
-					    <div class="input-field col s12">
-                            <p><label>Gender</label></p>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="email" name="email" type="email" class="validate">
+								<label for="email">Email</label>
+							</div>
 						</div>
-						<div class="col s12" >
-							<br>
-							<p>
-							  <input class="with-gap" type="radio" name="gender" value="M" id="male"  />
-							  <label for="male">Male</label>
-							  <input class="with-gap" type="radio" name="gender" value="F" id="female" />
-							  <label for="female">Female</label>
-						    </p>
+
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="pass" name="pass" type="password" class="validate">
+								<label for="pass">Password</label>
+							</div>
 						</div>
-                    </div>
-					
-					<div class="row">
-                        <div class="col s12">
-                            <div class="g-recaptcha" data-sitekey="6LcyBhgTAAAAAM141gvF6zyIl4Pq0CLkzM-7jRa5" ></div>
-                        </div>
-                    </div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="repass" type="password" class="validate">
+								<label for="repass">Confirm Password</label>
+							</div>
+						</div>		
+							
+						<div class="row">
+							<div class="input-field col s12">
+								<label >Birth Year</label>
+							</div>
 
-                    <div class="divider"></div>
-                    <div class="row">
-                        <div class="col m12">
-                            <p class="left-align">
-                                <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Register</button>
-                            </p>
-                        </div>
-                    </div>
-					
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+							<div class="input-field col s12">
+								<br>
+								<p>
+									<select class="browser-default" name="year" id="year">
+										<option value="" disabled selected>Choose your birth year</option>
+									</select>
+								</p>
+							</div>
+						</div>	
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/checkconfirmpass.js"></script>
-  <script src='js/pickadate.js'></script>
-  
-  <script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
-  
+						<div class="row">
+							<div class="input-field col s12">
+								<p><label>Gender</label></p>
+							</div>
+							<div class="col s12" >
+								<br>
+								<p>
+									<input class="with-gap" type="radio" name="gender" value="M" id="male"  />
+									<label for="male">Male</label>
+									<input class="with-gap" type="radio" name="gender" value="F" id="female" />
+									<label for="female">Female</label>
+								</p>
+							</div>
+						</div>
 
-  </body>
+						<div class="row">
+							<div class="col s12">
+								<div class="g-recaptcha" data-sitekey="6LcyBhgTAAAAAM141gvF6zyIl4Pq0CLkzM-7jRa5" ></div>
+							</div>
+						</div>
+
+						<div class="divider"></div>
+						<div class="row">
+							<div class="col m12">
+								<p class="left-align">
+									<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Register</button>
+								</p>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script>
+	<script src="js/checkconfirmpass.js"></script>
+	<script src='js/pickadate.js'></script>
+
+	<script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
+
+
+</body>
 </html>
 
 

@@ -67,6 +67,7 @@
 							<div class="input-field col s12 center">	
 								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
 							</div>
+							<br><br>
 						</div>
 					</form>
 				</div>

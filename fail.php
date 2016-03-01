@@ -45,12 +45,7 @@
 				<br><br>
 				<div class="row">
 					<div class="input-field col s12 center">	
-						<a href="index.html#home" >
-							<button class="btn btn-large waves-effect waves-light" type="submit" name="action">
-								<i class="material-icons left">home</i>
-								Back to home
-							</button>
-						</a>
+						<button class="btn btn-large waves-effect waves-light" onclick="goBack()"><i class="material-icons left">fast_rewind</i>Go Back</button>
 					</div>
 				</div>
 				<br><br>
@@ -67,6 +62,7 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.js"></script>
 	<script src="js/init.js"></script>
+	<script src="js/goback.js"></script>
 
 </body>
 </html>

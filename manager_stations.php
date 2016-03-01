@@ -77,33 +77,40 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 m8 offset-m2 left brown-text">
-					<h2 class="header center teal-text text-lighten-2">Standby stations</h2>
-					<h4>
-					<?php			
-						$host = "localhost";
-						$user = "art";
-						$pass = "art12345678";
-						$dbname="healthTest"; 
-						
-						$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-						mysql_select_db($dbname) or die(mysql_error()); 
-						mysql_query("SET NAMES UTF8");
-						$data = mysql_query("SELECT station_name, station_unit FROM STATION")
-								or die(mysql_error()); 
+				<div class="col s12 m10 offset-m1 left">
+					<h5 style="word-wrap: break-word;">
+						<ul class="collection with-header">
+							<li class="collection-header center teal lighten-2 white-text text-lighten-2">
+								<h3>Standby stations</h3>
+							</li>
+
+							<?php			
+								$host = "localhost";
+								$user = "art";
+								$pass = "art12345678";
+								$dbname="healthTest"; 
 								
-						$rows = array();
-						while($r = mysql_fetch_assoc($data)) {
-							$rows[] = $r;
-						}
-						$jsonTable = json_encode($rows);		
-						$json_output = json_decode($jsonTable); 
-						foreach ($json_output as $key)  
-						{	
-							print "{$key->station_name} ({$key->station_unit})<br>";          
-						} 	
-					?>
-					</h4>
+								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+								mysql_select_db($dbname) or die(mysql_error()); 
+								mysql_query("SET NAMES UTF8");
+								$data = mysql_query("SELECT station_name, station_unit FROM STATION")
+										or die(mysql_error()); 
+										
+								$rows = array();
+								while($r = mysql_fetch_assoc($data)) {
+									$rows[] = $r;
+								}
+								$jsonTable = json_encode($rows);		
+								$json_output = json_decode($jsonTable); 
+								foreach ($json_output as $key)  
+								{	
+									print "<a href=\"#!\" class=\"collection-item brown-text\">";
+									print "{$key->station_name} ({$key->station_unit}) ";
+									print "</a>";											
+								} 	
+							?>
+						</ul>
+					</h5>
 				</div>
 			</div>
 		</div>

@@ -37,79 +37,19 @@
 		</div>
 	</nav>
   
-  
-	<div class="container">
-		<div class="row">
-			<div class="col s12 m6 offset-m3">
-				<h2 class="header center teal-text text-lighten-2">Create new test</h2>
-				<div class="row">
-					<form class="col s12" method="post" action="create_test.php">
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="testname" name="testname" type="text" class="validate">
-								<label for="testname">Test name</label>
-							</div>
-							<div class="input-field col s12">	
-								<input id="password" name="password" type="password" class="validate">
-								<label for="password">Admin password</label>
-							</div>
-							
-							<div class="col s12"> 
-								<br>เลือกฐานการทดสอบที่ต้องการ
-							</div>
-							
-							<?php			
-								$host = "localhost";
-								$user = "art";
-								$pass = "art12345678";
-								$dbname="healthTest"; 
-								
-								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-								mysql_select_db($dbname) or die(mysql_error()); 
-								mysql_query("SET NAMES UTF8");
-								$data = mysql_query("SELECT * FROM STATION")
-										or die(mysql_error()); 
-										
-								$rows = array();
-								while($r = mysql_fetch_assoc($data)) {
-									$rows[] = $r;
-								}
-								$jsonTable = json_encode($rows);		
-								$json_output = json_decode($jsonTable); 
-								foreach ($json_output as $key)  
-								{	
-									print "<div class=\"col s12\"><p>";
-									print "<input type=\"checkbox\" id=\"station{$key->station_id}\">";
-									print "<label for=\"station{$key->station_id}\">";
-									print "{$key->station_name} ({$key->station_unit}) <br>";
-								
-									print "</label></p></div>";
-								} 	
-							?>
-							
-							<div class="input-field col s12 center">	
-								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Create</button>
-							</div>
-							
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-  
-
 	<div class="container">
 		<div class="section">
 			<div class="row">
 				<div class="col s12 m10 offset-m1 left">
 					<h5 style="word-wrap: break-word;">
 						<ul class="collection with-header">
-							<li class="collection-header center teal lighten-2 white-text text-lighten-2">
-								<h3>Standby tests</h3>
-							</li>
-							
-							<?php			
+						
+							<?php	
+								print "<li class=\"collection-header center teal lighten-2 white-text text-lighten-2\">
+								<h3>";
+								print $_GET["test_name"]."<br>(รหัสแบบทดสอบ ".$_GET["test_code"].")";
+								print "</h3></li>";
+								
 								$host = "localhost";
 								$user = "art";
 								$pass = "art12345678";
@@ -117,29 +57,35 @@
 								
 								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
 								mysql_select_db($dbname) or die(mysql_error()); 
+								
+								
 								mysql_query("SET NAMES UTF8");
-								$data = mysql_query("SELECT test_name, test_code, date(date) AS CREATEDAY FROM TEST")
+								$data = mysql_query("SELECT TEST.test_code, STATION.station_name, STATION.station_unit
+										FROM  `TEST` 
+										INNER JOIN  `TEST_STATION` 
+										ON TEST.test_id = TEST_STATION.test_id
+										INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
+										WHERE TEST.test_code = \"".$_GET['test_code']."\"")
 										or die(mysql_error()); 
 										
 								$rows = array();
 								while($r = mysql_fetch_assoc($data)) {
 									$rows[] = $r;
 								}
-								$rows = array_reverse($rows ,true);
 								$jsonTable = json_encode($rows);		
 								$json_output = json_decode($jsonTable); 
 								foreach ($json_output as $key)  
 								{	
-									print "<a href=\"manager_tests_edit.php?test_name={$key->test_name}&test_code={$key->test_code}\" class=\"collection-item brown-text\" >";
-									print "{$key->CREATEDAY} {$key->test_name} ";
-									print "<div class=\"right teal-text text-lighten-2\">{$key->test_code}</div>";
-									print "</a>";									
+									print "<div class=\"collection-item brown-text\">";
+									print "{$key->station_name} ({$key->station_unit})";
+									print "</div>";									
 								} 	
 							?>
 						</ul>
 					</h5>
 				</div>
 			</div>
+			<h1><br><br><br><br><br><br></h1>
 		</div>
 	</div>
 
