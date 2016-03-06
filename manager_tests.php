@@ -79,7 +79,8 @@
 								foreach ($json_output as $key)  
 								{	
 									print "<div class=\"col s12\"><p>";
-									print "<input type=\"checkbox\" id=\"station{$key->station_id}\">";
+									print "<input type=\"checkbox\" id=\"station{$key->station_id}\"
+									name=\"station[]\" value=\"{$key->station_id}\" >";
 									print "<label for=\"station{$key->station_id}\">";
 									print "{$key->station_name} ({$key->station_unit}) <br>";
 								
