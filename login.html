@@ -13,6 +13,28 @@
 </head>
 
 <body>
+	<nav class="white" role="navigation" id="home">
+		<div class="nav-wrapper container">
+			<a id="logo-container" href="index.html" class="brand-logo"> <img src="img/logo.png" alt="HealthTest" height="60" width="60"> </a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="index.html#about">About</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+				<li><a href="preregis.php">Pre-regis</a></li>
+				<li><a href="result.php">Result</a></li>
+			</ul>
+
+			<ul id="nav-mobile" class="side-nav">
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="index.html#about">About</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+				<li><a href="preregis.php">Pre-regis</a></li>
+				<li><a href="result.php">Result</a></li>
+			</ul>
+			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+		</div>
+	</nav>
+	
   <div class="container">
     <div class="row">
 		<div class="col s12 m6  offset-m3">
@@ -21,13 +43,13 @@
                 <form class="col s12" method="post" action="check_login.php">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" name="email" type="email" class="validate">
+                            <input id="email" name="email" type="email" class="validate" required>
                             <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="pass" name="pass" type="password" class="validate">
+                            <input id="pass" name="pass" type="password" class="validate" required>
                             <label for="pass">Password</label>
                         </div>
                     </div>

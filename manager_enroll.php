@@ -26,7 +26,6 @@
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
-			<ul class="right hide-on-med-and-down">
 				<li><a href="manager.html">Home</a></li>
 				<li><a href="manager_tests.php">Tests</a></li>
 				<li><a href="manager_stations.php">Stations</a></li>
@@ -43,14 +42,14 @@
 			<div class="col s12 m6 offset-m3">
 				<h2 class="header center teal-text text-lighten-2">Enrollment</h2>
 				<div class="row">
-					<form class="col s12" method="post" action="enroll.php">
+					<form class="col s12" method="post" action="enroll.php" enctype="multipart/form-data">
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="testcode" name="testcode" type="text" class="validate">
+								<input id="testcode" name="testcode" type="text" class="validate" required>
 								<label for="testcode">Test Code</label>
 							</div>
 							<div class="input-field col s12">	
-								<input id="password" name="password" type="password" class="validate">
+								<input id="password" name="password" type="password" class="validate" required>
 								<label for="password">Admin password</label>
 							</div>
 							
@@ -60,12 +59,12 @@
 									<input type="file" name="fileCSV" id="fileCSV">
 								</div>
 								<div class="file-path-wrapper">
-									<input class="file-path validate" type="text"  placeholder="เลือกไฟล์ .csv">
+									<input class="file-path validate" type="text"  placeholder="เลือกไฟล์ .csv" required>
 								</div>
 							</div>
 							
 							<div class="input-field col s12 center">	
-								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
+								<button class="btn btn-large waves-effect waves-light" type="submit" name="action" value="submit" id="btnSubmit">Submit</button>
 							</div>
 							<br><br>
 						</div>

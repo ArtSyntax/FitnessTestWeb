@@ -26,7 +26,6 @@
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
-			<ul class="right hide-on-med-and-down">
 				<li><a href="manager.html">Home</a></li>
 				<li><a href="manager_tests.php">Tests</a></li>
 				<li><a href="manager_stations.php">Stations</a></li>
@@ -37,73 +36,10 @@
 		</div>
 	</nav>
   
-  
-	<div class="container">
-		<div class="row">
-			<div class="col s12 m6 offset-m3">
-				<h2 class="header center teal-text text-lighten-2">Create new test</h2>
-				<div class="row">
-					<form class="col s12" method="post" action="create_test.php">
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="testname" name="testname" type="text" class="validate">
-								<label for="testname">Test name</label>
-							</div>
-							<div class="input-field col s12">	
-								<input id="password" name="password" type="password" class="validate">
-								<label for="password">Admin password</label>
-							</div>
-							
-							<div class="col s12"> 
-								<br>เลือกฐานการทดสอบที่ต้องการ
-							</div>
-							
-							<?php			
-								$host = "localhost";
-								$user = "art";
-								$pass = "art12345678";
-								$dbname="healthTest"; 
-								
-								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-								mysql_select_db($dbname) or die(mysql_error()); 
-								mysql_query("SET NAMES UTF8");
-								$data = mysql_query("SELECT * FROM STATION")
-										or die(mysql_error()); 
-										
-								$rows = array();
-								while($r = mysql_fetch_assoc($data)) {
-									$rows[] = $r;
-								}
-								$jsonTable = json_encode($rows);		
-								$json_output = json_decode($jsonTable); 
-								foreach ($json_output as $key)  
-								{	
-									print "<div class=\"col s12\"><p>";
-									print "<input type=\"checkbox\" id=\"station{$key->station_id}\"
-									name=\"station[]\" value=\"{$key->station_id}\" >";
-									print "<label for=\"station{$key->station_id}\">";
-									print "{$key->station_name} ({$key->station_unit}) <br>";
-								
-									print "</label></p></div>";
-								} 	
-							?>
-							
-							<div class="input-field col s12 center">	
-								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Create</button>
-							</div>
-							
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-  
-
-	<div class="container">
+  	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 m10 offset-m1 left">
+				<div class="col s12 m8 offset-m2 left">
 					<h5 style="word-wrap: break-word;">
 						<ul class="collection with-header">
 							<li class="collection-header center teal lighten-2 white-text text-lighten-2">
@@ -144,6 +80,65 @@
 		</div>
 	</div>
 
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m6 offset-m3">
+				<h2 class="header center teal-text text-lighten-2">Create new test</h2>
+				<div class="row">
+					<form class="col s12" method="post" action="create_test.php">
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="testname" name="testname" type="text" class="validate" required>
+								<label for="testname">Test name</label>
+							</div>
+							<div class="input-field col s12">	
+								<input id="password" name="password" type="password" class="validate" required>
+								<label for="password">Admin password</label>
+							</div>
+							
+							<div class="col s12"> 
+								<br>เลือกฐานการทดสอบที่ต้องการ
+							</div>
+							
+							<?php			
+								$host = "localhost";
+								$user = "art";
+								$pass = "art12345678";
+								$dbname="healthTest"; 
+								
+								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+								mysql_select_db($dbname) or die(mysql_error()); 
+								mysql_query("SET NAMES UTF8");
+								$data = mysql_query("SELECT * FROM STATION")
+										or die(mysql_error()); 
+										
+								$rows = array();
+								while($r = mysql_fetch_assoc($data)) {
+									$rows[] = $r;
+								}
+								$jsonTable = json_encode($rows);		
+								$json_output = json_decode($jsonTable); 
+								foreach ($json_output as $key)  
+								{	
+									print "<div class=\"col s12\"><p>";
+									print "<input type=\"checkbox\" id=\"station{$key->station_id}\"
+									name=\"station[]\" value=\"{$key->station_id}\" >";
+									print "<label for=\"station{$key->station_id}\">";
+									print "{$key->station_name} ({$key->station_unit}) <br>";
+									print "</label></p></div>";
+								} 	
+							?>
+							
+							<div class="input-field col s12">	
+								<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Create</button>
+							</div>
+							
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<footer class="page-footer teal" id="contact">
 		<div class="container">

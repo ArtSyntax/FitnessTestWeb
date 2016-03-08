@@ -13,6 +13,28 @@
 </head>
 
 <body>
+	<nav class="white" role="navigation" id="home">
+		<div class="nav-wrapper container">
+			<a id="logo-container" href="index.html" class="brand-logo"> <img src="img/logo.png" alt="HealthTest" height="60" width="60"> </a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="index.html#about">About</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+				<li><a href="preregis.php">Pre-regis</a></li>
+				<li><a href="result.php">Result</a></li>
+			</ul>
+
+			<ul id="nav-mobile" class="side-nav">
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="index.html#about">About</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+				<li><a href="preregis.php">Pre-regis</a></li>
+				<li><a href="result.php">Result</a></li>
+			</ul>
+			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+		</div>
+	</nav>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m6  offset-m3">
@@ -22,25 +44,25 @@
 						<div class="row">
 							<div class="input-field col s12">
 								<input id="id" name="id" type="text"class="validate">
-								<label for="id">ID</label>
+								<label for="id">ID (optional)</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="email" name="email" type="email" class="validate">
+								<input id="email" name="email" type="email" class="validate" required>
 								<label for="email">Email</label>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="pass" name="pass" type="password" class="validate">
+								<input id="pass" name="pass" type="password" class="validate" required>
 								<label for="pass">Password</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="repass" type="password" class="validate">
+								<input id="repass" type="password" class="validate" required>
 								<label for="repass">Confirm Password</label>
 							</div>
 						</div>		
@@ -53,7 +75,7 @@
 							<div class="input-field col s12">
 								<br>
 								<p>
-									<select class="browser-default" name="year" id="year">
+									<select class="browser-default" name="year" id="year" required>
 										<option value="" disabled selected>Choose your birth year</option>
 									</select>
 								</p>
@@ -67,7 +89,7 @@
 							<div class="col s12" >
 								<br>
 								<p>
-									<input class="with-gap" type="radio" name="gender" value="M" id="male"  />
+									<input class="with-gap" type="radio" name="gender" value="M" id="male"   required/>
 									<label for="male">Male</label>
 									<input class="with-gap" type="radio" name="gender" value="F" id="female" />
 									<label for="female">Female</label>
@@ -77,7 +99,8 @@
 
 						<div class="row">
 							<div class="col s12">
-								<div class="g-recaptcha" data-sitekey="6LcyBhgTAAAAAM141gvF6zyIl4Pq0CLkzM-7jRa5" ></div>
+								<div class="g-recaptcha" name="recaptcha" id="recaptcha"
+								data-sitekey="6LcyBhgTAAAAAM141gvF6zyIl4Pq0CLkzM-7jRa5"></div>
 							</div>
 						</div>
 
@@ -102,9 +125,9 @@
 	<script src="js/init.js"></script>
 	<script src="js/checkconfirmpass.js"></script>
 	<script src='js/pickadate.js'></script>
-
+	<script src='js/captcha.js'></script>
+	
 	<script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
-
 
 </body>
 </html>

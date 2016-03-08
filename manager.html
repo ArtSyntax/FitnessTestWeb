@@ -26,7 +26,6 @@
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
-			<ul class="right hide-on-med-and-down">
 				<li><a href="manager.html">Home</a></li>
 				<li><a href="manager_tests.php">Tests</a></li>
 				<li><a href="manager_stations.php">Stations</a></li>

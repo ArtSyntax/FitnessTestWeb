@@ -45,11 +45,11 @@
 					<form class="col s12" method="post" action="check_preregis.php">
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="testcode" name="testcode" type="text" class="validate">
+								<input id="testcode" name="testcode" type="text" class="validate" required>
 								<label for="testcode">Test code</label>
 							</div>
 							<div class="input-field col s12">	
-								<input id="id" name="id" type="text" class="validate">
+								<input id="id" name="id" type="text" class="validate" required>
 								<label for="id">ID</label>
 							</div>
 							<div class="input-field col s12">	

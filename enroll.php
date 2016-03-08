@@ -10,6 +10,8 @@
 	$objDB = mysql_select_db("healthTest");
 
 	$objCSV = fopen($_FILES["fileCSV"]["name"], "r");
+	
+	/*
 	while (($objArr = fgetcsv($objCSV, 1000, ",")) !== FALSE) {
 		$strSQL = "INSERT INTO healthTest.USER ";
 		$strSQL .="(user_id, id, email, password, gender, birthyear) ";
@@ -17,6 +19,10 @@
 		$strSQL .="('".$objArr[0]."','".$objArr[1]."','".$objArr[2]."' ";
 		$strSQL .=",'".$objArr[3]."','".$objArr[4]."','".$objArr[5]."') ";
 		$objQuery = mysql_query($strSQL);
+	}
+	*/
+	while(! feof($objCSV)){
+		print_r(fgetcsv($objCSV));
 	}
 	fclose($objCSV);
 	

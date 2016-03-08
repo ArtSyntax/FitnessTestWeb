@@ -42,10 +42,10 @@
 				<div class="col s12 center">
 				<h2 class="header center teal-text text-lighten-2">Test code</h2>
 					<div class="row">
-						<form class="col s12 m6 offset-m3" method="post" action="check_preregis.php">
+						<form class="col s12 m6 offset-m3" method="post" action="">
 							<div class="row">
 								<div class="input-field col s12">
-									<input id="testcode" name="testcode" type="text" class="validate">
+									<input id="testcode" name="testcode" type="text" class="validate" required>
 									<label for="testcode">Test code</label>
 								</div>
 								<div class="input-field col s12">	
