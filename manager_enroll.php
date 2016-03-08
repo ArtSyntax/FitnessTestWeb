@@ -35,8 +35,9 @@
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
 	</nav>
-  
-  
+
+
+
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m6 offset-m3">
@@ -71,10 +72,23 @@
 					</form>
 				</div>
 			</div>
+			
+			
+			<div class="col s12">
+				<br><br>
+				<div class="divider"></div>
+				<br>
+			</div>
+			
 		</div>
 	</div>
   
 
+
+	<div style=" height: 100%; width: 100%; top:0;left 0;">
+		<img src='img/csv_format.jpg' style="width: 100%" />
+	</div>
+	
 	<div class="container">
 		<div class="section">
 			<div class="row">

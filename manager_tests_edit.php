@@ -75,9 +75,9 @@
 								$json_output = json_decode($jsonTable); 
 								foreach ($json_output as $key)  
 								{	
-									print "<div class=\"collection-item brown-text\">";
+									print "<a href=\"manager_stations_edit.php?station_name={$key->station_name}&station_unit={$key->station_unit}\" class=\"collection-item brown-text\" >";
 									print "{$key->station_name} ({$key->station_unit})";
-									print "</div>";									
+									print "</a>";										
 								} 	
 							?>
 						</ul>
