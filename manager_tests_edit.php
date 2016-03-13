@@ -122,7 +122,8 @@
 											ON USER.user_id = TEST_ENROLLMENT.user_id 
 											INNER JOIN TEST 
 											ON TEST.test_id = TEST_ENROLLMENT.test_id			
-											WHERE TEST.test_code = '".$_GET["test_code"]."'")
+											WHERE TEST.test_code = '".$_GET["test_code"]."'
+											ORDER BY USER.id ASC, USER.firstname ASC")
 											or die(mysql_error()); 
 											
 									$rows = array();

@@ -20,7 +20,9 @@
 		$_SESSION["test_code"] = $objResult["test_code"];
 		session_write_close();
 		print found;
-		header("location:preregis.php?testcode=".$_POST['testcode']);
+		if ($_POST['id'] == NULL)
+			$_POST['id']='*';
+		header("location:preregis.php?testcode=".$_POST['testcode']."&id=".$_POST['id']);
 	}
 	mysql_close();
 ?>

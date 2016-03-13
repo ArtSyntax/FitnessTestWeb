@@ -61,50 +61,74 @@
 			</div>
 		</div>
 	</div>
-  
-
+	
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 center brown-text">
-					<h4>
-						<?php
-							if($_GET){
-								$host = "localhost";
-								$user = "art";
-								$pass = "art12345678";
-								$dbname="healthTest"; 
+				<div class="col s12 m10 offset-m1 left">
+					<ul class="collection with-header">
+						<li class="collection-header center teal lighten-2 white-text text-lighten-2">
+							<h3>รายชื่อผู้เข้าทดสอบ </h3>
+						</li>
+					
+						<table class="highlight">
+							<thead>
+								<tr>
+									<th data-field="id">รหัส</th>
+									<th data-field="firstname">ชื่อ</th>
+									<th data-field="lastname">สกุล</th>
+									<th data-field="tag_id">หมายเลขทดสอบ</th>
+								</tr>
+							</thead>
+						
+							<tbody>
+								<?php	
+									$host = "localhost";
+									$user = "art";
+									$pass = "art12345678";
+									$dbname="healthTest"; 
+									$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+									mysql_select_db($dbname) or die(mysql_error()); 
+									
+									mysql_query("SET NAMES UTF8");
+									$user_enroll = mysql_query("SELECT USER.id, USER.firstname, USER.lastname, 
+											TEST_ENROLLMENT.user_tag FROM USER 
+											INNER JOIN TEST_ENROLLMENT 
+											ON USER.user_id = TEST_ENROLLMENT.user_id 
+											INNER JOIN TEST 
+											ON TEST.test_id = TEST_ENROLLMENT.test_id			
+											WHERE TEST.test_code = '".$_GET["testcode"]."'
+											AND USER.id = '".$_GET["id"]."'
+											ORDER BY USER.id ASC, USER.firstname ASC")
+											or die(mysql_error()); 
+											
+									$rows = array();
+									while($r = mysql_fetch_assoc($user_enroll)) {
+										$rows[] = $r;
+									}
+									$jsonTable = json_encode($rows);		
+									$json_output = json_decode($jsonTable); 
+									foreach ($json_output as $key)  
+									{	
+										print "<tr>";
+										print"<td>{$key->id}</td>";
+										print"<td>{$key->firstname}</td>";
+										print"<td>{$key->lastname}</td>";
+										print"<td>{$key->user_tag}</td>";
+										print "</tr>";
+									} 	
+								?>
 								
-								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-								mysql_select_db($dbname) or die(mysql_error()); 
-								mysql_query("SET NAMES UTF8");
-								$data = mysql_query("SELECT TEST.test_code, STATION.station_name
-										FROM  `TEST` 
-										INNER JOIN  `TEST_STATION` 
-										ON TEST.test_id = TEST_STATION.test_id
-										INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
-										WHERE TEST.test_code = \"".$_GET['testcode']."\"")
-										or die(mysql_error()); 
-										
-								$rows = array();
-								while($r = mysql_fetch_assoc($data)) {
-									$rows[] = $r;
-								}
-								$jsonTable = json_encode($rows);		
-								$json_output = json_decode($jsonTable); 
-								foreach ($json_output as $key)  
-								{	
-									print "{$key->test_code} {$key->station_name}<br>";          
-								} 	
-							}
-						?>
-					</h4>
+							</tbody>
+						</table>
+					
+					</ul>
 				</div>
 			</div>
+			<h1><br><br></h1>
 		</div>
 	</div>
-
-
+  
 	<footer class="page-footer teal" id="contact">
 		<div class="container">
 			<div class="row">

@@ -20,16 +20,16 @@
 			<ul class="right hide-on-med-and-down">
 				<li><a href="index.html#home">Home</a></li>
 				<li><a href="index.html#about">About</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+				<li><a href="preregis.php">Pre-regis</a></li>
 				<li><a href="result.php">Result</a></li>				
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
 				<li><a href="index.html#home">Home</a></li>
 				<li><a href="index.html#about">About</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+				<li><a href="preregis.php">Pre-regis</a></li>
 				<li><a href="result.php">Result</a></li>				
 			</ul>
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -43,13 +43,41 @@
 				<br><br><br><br><br><br>
 
 					<?php
-						print "<h2 class=\"header center teal-text text-lighten-2\">";
-						print "<br> Tag ID: ";				
-						print "</h2>";
-						print "<h4 class=\"header center brown-text\">";
-						print "<br> NAMEEEEE SURRRRN";
-						print "<br>Test code: ".$_GET['test_code'];
-						print "</h4>";
+						$host = "localhost";
+						$user = "art";
+						$pass = "art12345678";
+						$dbname="healthTest"; 
+						
+						$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+						mysql_select_db($dbname) or die(mysql_error()); 
+						
+						
+						mysql_query("SET NAMES UTF8");
+						$data = mysql_query("SELECT firstname, lastname, user_tag, test_name  
+								FROM USER 
+								INNER JOIN TEST_ENROLLMENT ON  TEST_ENROLLMENT.user_id = USER.user_id
+								INNER JOIN TEST ON  TEST_ENROLLMENT.test_id = TEST.test_id
+								WHERE USER.user_id = \"".$_GET['tmp']."\"
+								AND TEST.test_code='".$_GET['test_code']."'")
+								or die(mysql_error()); 
+								
+						$rows = array();
+						while($r = mysql_fetch_assoc($data)) {
+							$rows[] = $r;
+						}
+						$jsonTable = json_encode($rows);		
+						$json_output = json_decode($jsonTable); 
+						foreach ($json_output as $key)  
+						{	
+							print "<h2 class=\"header center teal-text text-lighten-2\">";
+							print "<br> Tag ID: {$key->user_tag}";				
+							print "</h2>";
+							print "<h4 class=\"header center brown-text\">";
+							print "{$key->firstname} {$key->lastname}";
+							print "<br>{$key->test_name} (".$_GET['test_code'].")";
+							print "</h4>";									
+						} 	
+
 					?>
 					
 
