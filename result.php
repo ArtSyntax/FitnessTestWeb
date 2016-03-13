@@ -44,13 +44,9 @@
 					<div class="row">
 						<form class="col s12 m6 offset-m3" method="post" action="">
 							<div class="row">
-								<div class="input-field col s12">
-									<input id="testcode" name="testcode" type="text" class="validate" required>
-									<label for="testcode">Test code</label>
-								</div>
 								<div class="input-field col s12">	
 									<input id="id" name="id" type="text" class="validate">
-									<label for="id">ID (optional)</label>
+									<label for="id">ID</label>
 								</div>
 								<div class="input-field col s12">	
 									<button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit</button>
