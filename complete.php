@@ -18,19 +18,19 @@
 		<div class="nav-wrapper container">
 			<a id="logo-container" href="index.html" class="brand-logo"> <img src="img/logo.png" alt="HealthTest" height="60" width="60"> </a>
 			<ul class="right hide-on-med-and-down">
-				<li><a href="index.html#home">Home</a></li>
-				<li><a href="index.html#about">About</a></li>
+				<li><a href="manager.html">Home</a></li>
+				<li><a href="manager_tests.php">Tests</a></li>
+				<li><a href="manager_stations.php">Stations</a></li>
+				<li><a href="manager_enroll.php">Enrollment</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
-				<li><a href="result.php">Result</a></li>				
 			</ul>
 
 			<ul id="nav-mobile" class="side-nav">
-				<li><a href="index.html#home">Home</a></li>
-				<li><a href="index.html#about">About</a></li>
+				<li><a href="manager.html">Home</a></li>
+				<li><a href="manager_tests.php">Tests</a></li>
+				<li><a href="manager_stations.php">Stations</a></li>
+				<li><a href="manager_enroll.php">Enrollment</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="#">Pre-regis</a></li>
-				<li><a href="result.php">Result</a></li>				
 			</ul>
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
@@ -41,11 +41,15 @@
 	    <div class="row">
 			<div class="col s12 m6  offset-m3">
 				<br><br><br><br><br><br>
-				<h2 class="header center red-text text-lighten-2">{ Fail request }</h2>
+				<h2 class="header center teal-text text-lighten-2">{ Complete }</h2>
 				<br><br>
 				<div class="row">
 					<div class="input-field col s12 center">	
-						<button class="btn btn-large waves-effect waves-light" onclick="goBack()"><i class="material-icons left">fast_rewind</i>Go Back</button>
+						<a href="manager.html">
+							<button class="btn btn-large waves-effect waves-light" >
+								<i class="material-icons left">home</i>Home
+							</button>
+						</a>
 					</div>
 				</div>
 				<br><br>
