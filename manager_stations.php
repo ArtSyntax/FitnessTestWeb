@@ -103,71 +103,91 @@
 								<br><i class="material-icons ">person_pin</i> ชาย<br>
 							</div>
 							
-								<div class="col s12"> 
-									<br>อายุ 15-19 ปี
+								<div class="col s12">
+									<br>เกณฑ์ที่ 1 :
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุต่ำสุด (ปี)" name="m1_age_low" type="number" class="validate" required >
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุสูงสุด (ปี)" name="m1_age_high" type="number" class="validate" required >
+								</div>				
+
+								<div class="input-field col s6 m2">
+									<input placeholder="แย่ (ค่าต่ำสุด)" name="m1_bad_low" type="number" step="0.01" class="validate" required >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยต่ำสุด" name="mage1519_bad_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="น้อยสูงสุด" name="mage1519_bad_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าสูงสุด)" name="m1_bad_high" type="number" step="0.01" class="validate" required >
 								</div>								
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางต่ำสุด" name="mage1519_mid_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="กลาง (ค่าต่ำสุด)" name="m1_mid_low" type="number" step="0.01" class="validate" required >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางสูงสุด" name="mage1519_mid_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="กลาง (ค่าสูงสุด)" name="m1_mid_high" type="number" step="0.01" class="validate" required >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="ดีต่ำสุด" name="mage1519_good_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าต่ำสุด)" name="m1_good_low" type="number" step="0.01" class="validate" required >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="ดีสูงสุด" name="mage1519_good_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าสูงสุด)" name="m1_good_high" type="number" step="0.01" class="validate" required >
 								</div>
 
-								<div class="col s12"> 
-									<br>อายุ 20-24 ปี
+								<div class="col s12">
+									<br>เกณฑ์ที่ 2:
 								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุต่ำสุด (ปี)" name="m2_age_low" type="number" class="validate" >
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุสูงสุด (ปี)" name="m2_age_high" type="number" class="validate" >
+								</div>				
 
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยต่ำสุด" name="mage2024_bad_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าต่ำสุด)" name="m2_bad_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยสูงสุด" name="mage2024_bad_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าสูงสุด)" name="m2_bad_high" type="number" step="0.01" class="validate" >
+								</div>								
+								<div class="input-field col s6 m2">
+									<input placeholder="กลาง (ค่าต่ำสุด)" name="m2_mid_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางต่ำสุด" name="mage2024_mid_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="กลาง (ค่าสูงสุด)" name="m2_mid_high" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางสูงสุด" name="mage2024_mid_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าต่ำสุด)" name="m2_good_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="ดีต่ำสุด" name="mage2024_good_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="ดีสูงสุด" name="mage2024_good_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าสูงสุด)" name="m2_good_high" type="number" step="0.01" class="validate" >
 								</div>
 								
-								<div class="col s12"> 
-									<br>อายุ 25-30 ปี
+								<div class="col s12">
+									<br>เกณฑ์ที่ 3:
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุต่ำสุด (ปี)" name="m3_age_low" type="number" class="validate" >
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุสูงสุด (ปี)" name="m3_age_high" type="number" class="validate" >
+								</div>				
+
+								<div class="input-field col s6 m2">
+									<input placeholder="แย่ (ค่าต่ำสุด)" name="m3_bad_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยต่ำสุด" name="mage2530_bad_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าสูงสุด)" name="m3_bad_high" type="number" step="0.01" class="validate" >
+								</div>								
+								<div class="input-field col s6 m2">
+									<input placeholder="กลาง (ค่าต่ำสุด)" name="m3_mid_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยสูงสุด" name="mage2530_bad_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="กลาง (ค่าสูงสุด)" name="m3_mid_high" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางต่ำสุด" name="mage2530_mid_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าต่ำสุด)" name="m3_good_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางสูงสุด" name="mage2530_mid_high" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="ดีต่ำสุด" name="mage2530_good_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="ดีสูงสุด" name="mage2530_good_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าสูงสุด)" name="m3_good_high" type="number" step="0.01" class="validate" >
 								</div>
 
 								
@@ -175,73 +195,91 @@
 								<br><br><i class="material-icons ">person_pin</i> หญิง<br>
 							</div>
 							
-								<div class="col s12"> 
-									<br>อายุ 15-19 ปี
+								<div class="col s12">
+									<br>เกณฑ์ที่ 1 :
 								</div>
-								
-								<div class="input-field col s6 m2">
-									<input placeholder="น้อยต่ำสุด" name="fage1519_bad_low" type="number" step="0.01" class="validate" required >
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุต่ำสุด (ปี)" name="f1_age_low" type="number" class="validate" required >
 								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุสูงสุด (ปี)" name="f1_age_high" type="number" class="validate" required >
+								</div>				
+
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยสูงสุด" name="fage1519_bad_high" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="กลางต่ำสุด" name="fage1519_mid_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="กลางสูงสุด" name="fage1519_mid_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าต่ำสุด)" name="f1_bad_low" type="number" step="0.01" class="validate" required >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="ดีต่ำสุด" name="fage1519_good_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าสูงสุด)" name="f1_bad_high" type="number" step="0.01" class="validate" required >
+								</div>								
+								<div class="input-field col s6 m2">
+									<input placeholder="กลาง (ค่าต่ำสุด)" name="f1_mid_low" type="number" step="0.01" class="validate" required >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="ดีสูงสุด" name="fage1519_good_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="กลาง (ค่าสูงสุด)" name="f1_mid_high" type="number" step="0.01" class="validate" required >
+								</div>
+								<div class="input-field col s6 m2">
+									<input placeholder="ดี (ค่าต่ำสุด)" name="f1_good_low" type="number" step="0.01" class="validate" required >
+								</div>
+								<div class="input-field col s6 m2">
+									<input placeholder="ดี (ค่าสูงสุด)" name="f1_good_high" type="number" step="0.01" class="validate" required >
 								</div>
 							
-								<div class="col s12"> 
-									<br>อายุ 20-24 ปี
+								<div class="col s12">
+									<br>เกณฑ์ที่ 2:
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุต่ำสุด (ปี)" name="f2_age_low" type="number" class="validate" >
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุสูงสุด (ปี)" name="f2_age_high" type="number" class="validate" >
+								</div>				
+
+								<div class="input-field col s6 m2">
+									<input placeholder="แย่ (ค่าต่ำสุด)" name="f2_bad_low" type="number" step="0.01" class="validate" >
+								</div>
+								<div class="input-field col s6 m2">
+									<input placeholder="แย่ (ค่าสูงสุด)" name="f2_bad_high" type="number" step="0.01" class="validate" >
+								</div>								
+								<div class="input-field col s6 m2">
+									<input placeholder="กลาง (ค่าต่ำสุด)" name="f2_mid_low" type="number" step="0.01" class="validate" >
+								</div>
+								<div class="input-field col s6 m2">
+									<input placeholder="กลาง (ค่าสูงสุด)" name="f2_mid_high" type="number" step="0.01" class="validate" >
+								</div>
+								<div class="input-field col s6 m2">
+									<input placeholder="ดี (ค่าต่ำสุด)" name="f2_good_low" type="number" step="0.01" class="validate" >
+								</div>
+								<div class="input-field col s6 m2">
+									<input placeholder="ดี (ค่าสูงสุด)" name="f2_good_high" type="number" step="0.01" class="validate" >
 								</div>
 								
+								<div class="col s12">
+									<br>เกณฑ์ที่ 3:
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุต่ำสุด (ปี)" name="f3_age_low" type="number" class="validate" >
+								</div>
+								<div class="input-field col s6 m6">
+									<input placeholder="อายุสูงสุด (ปี)" name="f3_age_high" type="number" class="validate" >
+								</div>				
+
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยต่ำสุด" name="fage2024_bad_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าต่ำสุด)" name="f3_bad_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="น้อยสูงสุด" name="fage2024_bad_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="แย่ (ค่าสูงสุด)" name="f3_bad_high" type="number" step="0.01" class="validate" >
+								</div>								
+								<div class="input-field col s6 m2">
+									<input placeholder="กลาง (ค่าต่ำสุด)" name="f3_mid_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางต่ำสุด" name="fage2024_mid_low" type="number" step="0.01" class="validate" required >
+									<input placeholder="กลาง (ค่าสูงสุด)" name="f3_mid_high" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="กลางสูงสุด" name="fage2024_mid_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าต่ำสุด)" name="f3_good_low" type="number" step="0.01" class="validate" >
 								</div>
 								<div class="input-field col s6 m2">
-									<input placeholder="ดีต่ำสุด" name="fage2024_good_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="ดีสูงสุด" name="fage2024_good_high" type="number" step="0.01" class="validate" required >
-								</div>
-								
-								<div class="col s12"> 
-									<br>อายุ 25-30 ปี
-								</div>
-								
-								<div class="input-field col s6 m2">
-									<input placeholder="น้อยต่ำสุด" name="fage2530_bad_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="น้อยสูงสุด" name="fage2530_bad_high" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="กลางต่ำสุด" name="fage2530_mid_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="กลางสูงสุด" name="fage2530_mid_high" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="ดีต่ำสุด" name="fage2530_good_low" type="number" step="0.01" class="validate" required >
-								</div>
-								<div class="input-field col s6 m2">
-									<input placeholder="ดีสูงสุด" name="fage2530_good_high" type="number" step="0.01" class="validate" required >
+									<input placeholder="ดี (ค่าสูงสุด)" name="f3_good_high" type="number" step="0.01" class="validate" >
 								</div>
 							<br>
 							<div class="input-field col s12 m6">	

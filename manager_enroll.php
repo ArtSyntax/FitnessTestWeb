@@ -82,54 +82,61 @@
 			
 		</div>
 	</div>
-  
 
 
-	<div style=" height: 100%; width: 100%; top:0;left 0;">
-		<img src='img/csv_format.jpg' style="width: 100%" />
-	</div>
-	
 	<div class="container">
-		<div class="section">
-			<div class="row">
-				<div class="col s12 center brown-text">
-					<h4>
-						<?php
-							if($_GET){
-								$host = "localhost";
-								$user = "art";
-								$pass = "art12345678";
-								$dbname="healthTest"; 
-								
-								$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
-								mysql_select_db($dbname) or die(mysql_error()); 
-								mysql_query("SET NAMES UTF8");
-								$data = mysql_query("SELECT TEST.test_code, STATION.station_name
-										FROM  `TEST` 
-										INNER JOIN  `TEST_STATION` 
-										ON TEST.test_id = TEST_STATION.test_id
-										INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
-										WHERE TEST.test_code = \"".$_GET['testcode']."\"")
-										or die(mysql_error()); 
-										
-								$rows = array();
-								while($r = mysql_fetch_assoc($data)) {
-									$rows[] = $r;
-								}
-								$jsonTable = json_encode($rows);		
-								$json_output = json_decode($jsonTable); 
-								foreach ($json_output as $key)  
-								{	
-									print "{$key->test_code} {$key->station_name}<br>";          
-								} 	
-							}
-						?>
-					</h4>
-				</div>
+		<div class="row" style="margin-top: 10%">
+			<div class="col s12">
+				<h4 class="header teal-text text-lighten-2">การอัพโหลดไฟล์สำหรับลงทะเบียนผู้เข้าทดสอบล่วงหน้า<br><br></h4>
+				<h5>
+					ไฟล์ที่สามารถอัพโหลดได้ต้องมีนามสกุลไฟล์เป็น .csv และ encode ด้วย UTF-8 เท่านั้น เพื่อให้รองรับข้อมูลชื่อและนามสกุลที่เป็นภาษาไทย โดยข้อมูลในไฟล์มีองค์ประกอบดังนี้ id, firstname, lastname, gender, birthyear
+				</h5>
 			</div>
 		</div>
+  
+		<div class="row" style="margin-top: 20%">
+			<div class="col s12 m6">
+				<img class="materialboxed" width="100%" src="img/csv_excel.png">
+			</div>
+			
+			<div class="col s12 m6">
+				<h4 class="header teal-text text-lighten-2"><i><br>เปิดไฟล์ด้วย Microsoft Excel<br><br></i></h4>
+				<h5>
+					จะประกอบไปด้วยคอลัมน์ดังต่อไปนี้
+					id, firstname, lastname, gender, birthyear<br>
+					*ห้ามบันทึกไฟล์เป็นนามสกุล .xls หรือ .xlsx เลือกเป็น .csv เท่านั้น
+				</h5>
+			</div>
+		</div>
+		
+		<div class="row"  style="margin-top: 20%">	
+			<div class="col s12 m6">
+				<img class="materialboxed" width="100%" src="img/csv_notepad.png">
+			</div>
+			
+			<div class="col s12 m6">
+				<h4 class="header teal-text text-lighten-2"><i><br><br>เปิดไฟล์ด้วย Notepad<br><br></i></h4>
+				<h5>
+					จะประกอบไปข้อมูลในลักษณะเดียวกัน
+					แต่ข้อมูลจะถูกแบ่งกันด้วยเครื่องหมาย ,
+				</h5>
+			</div>
+		</div>
+		
+		<div class="row"  style="margin-top: 20%">	
+			<div class="col s12 m6">
+				<img class="materialboxed" width="100%" src="img/csv_encode.png">
+			</div>
+			
+			<div class="col s12 m6">
+				<h4 class="header teal-text text-lighten-2"><i><br>การ encode UTF-8<br><br></i></h4>
+				<h5>
+					เปิดไฟล์ด้วยโปรแกรม Notepad จะได้หน้าตาไฟล์เหมือนในรูปก่อนหน้า จากนั้นกดบันทึกและเลือกแถบ encodeing ด้านล่างเป็น UTF-8
+				</h5>
+			</div>
+		</div>
+		<h1><br></h1>
 	</div>
-
 
 	<footer class="page-footer teal" id="contact">
 		<div class="container">

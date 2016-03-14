@@ -40,77 +40,108 @@
 		if ($conn->query($sql) === TRUE) {
 			echo "New record created successfully";
 			
+			$standard_count = 0;
 			$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
 					bad_high, mid_low, mid_high, good_low, good_high) 
-					VALUES (NULL, 'M', 15, 19,"
-					.(string)$_POST['mage1519_bad_low']."," 
-					.(string)$_POST['mage1519_bad_high'].","
-					.(string)$_POST['mage1519_mid_low'].","
-					.(string)$_POST['mage1519_mid_high'].","
-					.(string)$_POST['mage1519_good_low'].","
-					.(string)$_POST['mage1519_good_high'].");";	
+					VALUES (NULL, 'M'," 
+					.(string)$_POST['m1_age_low'].","
+					.(string)$_POST['m1_age_high'].","
+					.(string)$_POST['m1_bad_low']."," 
+					.(string)$_POST['m1_bad_high'].","
+					.(string)$_POST['m1_mid_low'].","
+					.(string)$_POST['m1_mid_high'].","
+					.(string)$_POST['m1_good_low'].","
+					.(string)$_POST['m1_good_high'].");";	
 			mysql_query("SET NAMES UTF8");
-			$sql_new_standard1 = mysql_query($add_standard) or die(mysql_error()); 
+			$sql_new_standard_m1 = mysql_query($add_standard) or die(mysql_error()); 
+			$standard_count++;
 			
-			$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
-					bad_high, mid_low, mid_high, good_low, good_high) 
-					VALUES (NULL, 'M', 20, 24,"
-					.(string)$_POST['mage2024_bad_low']."," 
-					.(string)$_POST['mage2024_bad_high'].","
-					.(string)$_POST['mage2024_mid_low'].","
-					.(string)$_POST['mage2024_mid_high'].","
-					.(string)$_POST['mage2024_good_low'].","
-					.(string)$_POST['mage2024_good_high'].");";	
-			mysql_query("SET NAMES UTF8");
-			$sql_new_standard2 = mysql_query($add_standard) or die(mysql_error()); 
+			if ($_POST['m2_age_low'] != null)
+			{
+				$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
+						bad_high, mid_low, mid_high, good_low, good_high) 
+						VALUES (NULL, 'M',"
+						.(string)$_POST['m2_age_low'].","
+						.(string)$_POST['m2_age_high'].","
+						.(string)$_POST['m2_bad_low']."," 
+						.(string)$_POST['m2_bad_high'].","
+						.(string)$_POST['m2_mid_low'].","
+						.(string)$_POST['m2_mid_high'].","
+						.(string)$_POST['m2_good_low'].","
+						.(string)$_POST['m2_good_high'].");";	
+				mysql_query("SET NAMES UTF8");
+				$sql_new_standard_m2 = mysql_query($add_standard) or die(mysql_error()); 
+				$standard_count++;
+			}
 					
-			$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
-					bad_high, mid_low, mid_high, good_low, good_high) 
-					VALUES (NULL, 'M', 25, 30,"
-					.(string)$_POST['mage2530_bad_low']."," 
-					.(string)$_POST['mage2530_bad_high'].","
-					.(string)$_POST['mage2530_mid_low'].","
-					.(string)$_POST['mage2530_mid_high'].","
-					.(string)$_POST['mage2530_good_low'].","
-					.(string)$_POST['mage2530_good_high'].");";	
-			mysql_query("SET NAMES UTF8");
-			$sql_new_standard3 = mysql_query($add_standard) or die(mysql_error());
+			if ($_POST['m3_age_low'] != null)
+			{
+				$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
+						bad_high, mid_low, mid_high, good_low, good_high) 
+						VALUES (NULL, 'M',"
+						.(string)$_POST['m3_age_low'].","
+						.(string)$_POST['m3_age_high'].","
+						.(string)$_POST['m3_bad_low']."," 
+						.(string)$_POST['m3_bad_high'].","
+						.(string)$_POST['m3_mid_low'].","
+						.(string)$_POST['m3_mid_high'].","
+						.(string)$_POST['m3_good_low'].","
+						.(string)$_POST['m3_good_high'].");";	
+				mysql_query("SET NAMES UTF8");
+				$sql_new_standard_m3 = mysql_query($add_standard) or die(mysql_error()); 
+				$standard_count++;
+			}
 			
 			$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
 					bad_high, mid_low, mid_high, good_low, good_high) 
-					VALUES (NULL, 'F', 15, 19,"
-					.(string)$_POST['fage1519_bad_low']."," 
-					.(string)$_POST['fage1519_bad_high'].","
-					.(string)$_POST['fage1519_mid_low'].","
-					.(string)$_POST['fage1519_mid_high'].","
-					.(string)$_POST['fage1519_good_low'].","
-					.(string)$_POST['fage1519_good_high'].");";	
+					VALUES (NULL, 'F'," 
+					.(string)$_POST['f1_age_low'].","
+					.(string)$_POST['f1_age_high'].","
+					.(string)$_POST['f1_bad_low']."," 
+					.(string)$_POST['f1_bad_high'].","
+					.(string)$_POST['f1_mid_low'].","
+					.(string)$_POST['f1_mid_high'].","
+					.(string)$_POST['f1_good_low'].","
+					.(string)$_POST['f1_good_high'].");";	
 			mysql_query("SET NAMES UTF8");
-			$sql_new_standard4 = mysql_query($add_standard) or die(mysql_error()); 
+			$sql_new_standard_f1 = mysql_query($add_standard) or die(mysql_error()); 
+			$standard_count++;
 			
-			$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
-					bad_high, mid_low, mid_high, good_low, good_high) 
-					VALUES (NULL, 'F', 20, 24,"
-					.(string)$_POST['fage2024_bad_low']."," 
-					.(string)$_POST['fage2024_bad_high'].","
-					.(string)$_POST['fage2024_mid_low'].","
-					.(string)$_POST['fage2024_mid_high'].","
-					.(string)$_POST['fage2024_good_low'].","
-					.(string)$_POST['fage2024_good_high'].");";	
-			mysql_query("SET NAMES UTF8");
-			$sql_new_standard5 = mysql_query($add_standard) or die(mysql_error()); 		
-			
-			$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
-					bad_high, mid_low, mid_high, good_low, good_high) 
-					VALUES (NULL, 'F', 25, 30,"
-					.(string)$_POST['fage2530_bad_low']."," 
-					.(string)$_POST['fage2530_bad_high'].","
-					.(string)$_POST['fage2530_mid_low'].","
-					.(string)$_POST['fage2530_mid_high'].","
-					.(string)$_POST['fage2530_good_low'].","
-					.(string)$_POST['fage2530_good_high'].");";	 			
-			mysql_query("SET NAMES UTF8");
-			$sql_new_standard6 = mysql_query($add_standard) or die(mysql_error()); 
+			if ($_POST['f2_age_low'] != null)
+			{
+				$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
+						bad_high, mid_low, mid_high, good_low, good_high) 
+						VALUES (NULL, 'F',"
+						.(string)$_POST['f2_age_low'].","
+						.(string)$_POST['f2_age_high'].","
+						.(string)$_POST['f2_bad_low']."," 
+						.(string)$_POST['f2_bad_high'].","
+						.(string)$_POST['f2_mid_low'].","
+						.(string)$_POST['f2_mid_high'].","
+						.(string)$_POST['f2_good_low'].","
+						.(string)$_POST['f2_good_high'].");";	
+				mysql_query("SET NAMES UTF8");
+				$sql_new_standard_f2 = mysql_query($add_standard) or die(mysql_error()); 
+				$standard_count++;
+			}
+					
+			if ($_POST['f3_age_low'] != null)
+			{
+				$add_standard="INSERT INTO STANDARD (standard_id, gender, age_low, age_high, bad_low, 
+						bad_high, mid_low, mid_high, good_low, good_high) 
+						VALUES (NULL, 'F',"
+						.(string)$_POST['f3_age_low'].","
+						.(string)$_POST['f3_age_high'].","
+						.(string)$_POST['f3_bad_low']."," 
+						.(string)$_POST['f3_bad_high'].","
+						.(string)$_POST['f3_mid_low'].","
+						.(string)$_POST['f3_mid_high'].","
+						.(string)$_POST['f3_good_low'].","
+						.(string)$_POST['f3_good_high'].");";	
+				mysql_query("SET NAMES UTF8");
+				$sql_new_standard_f3 = mysql_query($add_standard) or die(mysql_error()); 
+				$standard_count++;
+			}
 
 			// get station id
 			mysql_query("SET NAMES UTF8");
@@ -130,6 +161,7 @@
 				$current_station_id = $key->station_id;
 			} 
 			print_r("<br> current station id --> ".$current_station_id);
+			print_r("<br> i --> ".$standard_count);
 			
 			// get standard id
 			mysql_query("SET NAMES UTF8");
@@ -146,46 +178,20 @@
 			$current_standard_id = NULL;
 			foreach ($json_output as $key)  
 			{	
-				$current_standard_id = intval($key->MAXID)-5;
+				$current_standard_id = intval($key->MAXID)-$standard_count+1;
 			} 
 			print_r("<br> current standard id --> ".$current_standard_id);
 			
 			// add station standard
-			$add_station_standard=
-					"INSERT INTO STATION_STANDARD(station_standard_id, station_id, standard_id) 
-					VALUES(NULL,".(string)$current_station_id.",".(string)$current_standard_id.")";
-			mysql_query("SET NAMES UTF8");
-			$sql_set_station_standard1 = mysql_query($add_station_standard) or die(mysql_error()); 
 			
-			$add_station_standard=
-					"INSERT INTO STATION_STANDARD(station_standard_id, station_id, standard_id) 
-					VALUES(NULL,".(string)$current_station_id.",".(string)($current_standard_id+1).")";
-			mysql_query("SET NAMES UTF8");
-			$sql_set_station_standard2 = mysql_query($add_station_standard) or die(mysql_error());
-			
-			$add_station_standard=
-					"INSERT INTO STATION_STANDARD(station_standard_id, station_id, standard_id) 
-					VALUES(NULL,".(string)$current_station_id.",".(string)($current_standard_id+2).")";
-			mysql_query("SET NAMES UTF8");
-			$sql_set_station_standard3 = mysql_query($add_station_standard) or die(mysql_error());
-			
-			$add_station_standard=
-					"INSERT INTO STATION_STANDARD(station_standard_id, station_id, standard_id) 
-					VALUES(NULL,".(string)$current_station_id.",".(string)($current_standard_id+3).")";
-			mysql_query("SET NAMES UTF8");
-			$sql_set_station_standard4 = mysql_query($add_station_standard) or die(mysql_error());
-			
-			$add_station_standard=
-					"INSERT INTO STATION_STANDARD(station_standard_id, station_id, standard_id) 
-					VALUES(NULL,".(string)$current_station_id.",".(string)($current_standard_id+4).")";
-			mysql_query("SET NAMES UTF8");
-			$sql_set_station_standard5 = mysql_query($add_station_standard) or die(mysql_error());
-			
-			$add_station_standard=
-					"INSERT INTO STATION_STANDARD(station_standard_id, station_id, standard_id) 
-					VALUES(NULL,".(string)$current_station_id.",".(string)($current_standard_id+5).")";
-			mysql_query("SET NAMES UTF8");
-			$sql_set_station_standard6 = mysql_query($add_station_standard) or die(mysql_error());
+			for ($i = 0; $i<$standard_count;$i++ )
+			{
+				$add_station_standard=
+						"INSERT INTO STATION_STANDARD(station_standard_id, station_id, standard_id) 
+						VALUES(NULL,".(string)$current_station_id.",".(string)($current_standard_id+$i).")";
+				mysql_query("SET NAMES UTF8");
+				$sql_set_station_standard2 = mysql_query($add_station_standard) or die(mysql_error());
+			}
 			
 		} 
 		else {

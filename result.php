@@ -40,7 +40,7 @@
 		<div class="section">
 			<div class="row">
 				<div class="col s12 center">
-				<h2 class="header center teal-text text-lighten-2">Test code</h2>
+				<h2 class="header center teal-text text-lighten-2">Result</h2>
 					<div class="row">
 						<form class="col s12 m6 offset-m3" method="post" action="">
 							<div class="row">

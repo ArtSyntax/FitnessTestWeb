@@ -72,9 +72,14 @@
 			$objConnect = mysql_connect($servername, $username, $password) or die("Error Connect to Database"); 
 			$objDB = mysql_select_db("healthTest");
 			$objCSV = fopen($path, "r");
+			$firstline = true;
 			while (($objArr = fgetcsv($objCSV, ",")) !== FALSE) {
-				if($objArr[0] == "id") 
+				if($firstline) 
+				{
+					$firstline=false;
 					continue;
+				}	
+				mysql_query("SET NAMES UTF8");
 				$strSQL = "INSERT INTO USER (id, firstname, lastname, gender, birthyear) 
 							SELECT '".$objArr[0]."','".$objArr[1]."','".$objArr[2].
 							"','".$objArr[3]."','".$objArr[4]."' 
@@ -82,6 +87,7 @@
 							ON TEST_ENROLLMENT.user_id = USER.user_id
 							WHERE USER.id = '".$objArr[0]."' 
 							AND TEST_ENROLLMENT.test_id = '".$current_test_id."' HAVING COUNT(*) = 0";
+				print $strSQL."<br>";
 				$objQuery = mysql_query($strSQL);
 			}
 			fclose($objCSV);
