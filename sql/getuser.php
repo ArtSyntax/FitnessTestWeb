@@ -9,11 +9,12 @@
 		$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
 		mysql_select_db($dbname) or die(mysql_error()); 
 		mysql_query("SET NAMES UTF8");
-		$data = mysql_query("SELECT TEST.test_name, TEST.test_code, STATION.station_name, STATION.station_unit
-				FROM TEST
-				INNER JOIN TEST_STATION ON TEST.test_id = TEST_STATION.test_id
-				INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
-				WHERE TEST.test_code = \"".$_GET['testcode']."\"")
+		$data = mysql_query("SELECT USER.id, USER.firstname, USER.lastname, TEST_ENROLLMENT.user_tag 
+					FROM USER 
+					INNER JOIN TEST_ENROLLMENT ON USER.user_id = TEST_ENROLLMENT.user_id 
+					INNER JOIN TEST ON TEST.test_id = TEST_ENROLLMENT.test_id			
+					WHERE TEST.test_code = \"".$_GET['testcode']."\"
+					ORDER BY USER.id ASC, USER.firstname ASC")
 				or die(mysql_error()); 
 				
 		$rows = array();
