@@ -39,7 +39,7 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 m10 offset-m1 left">
+				<div class="col s12 left">
 					<h5 style="word-wrap: break-word;">
 						<ul class="collection with-header">
 						
@@ -90,7 +90,7 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 m10 offset-m1 left">
+				<div class="col s12 left">
 					<ul class="collection with-header">
 						<li class="collection-header center teal lighten-2 white-text text-lighten-2">
 							<h3>รายชื่อผู้เข้าทดสอบ </h3>

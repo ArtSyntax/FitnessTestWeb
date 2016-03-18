@@ -90,7 +90,7 @@
 									foreach ($json_output as $key)  
 									{	
 										print "<tr>";
-										print"<td>{$key->age_low}-{$key->age_high}</td>";
+										print"<td><b>{$key->age_low}-{$key->age_high}</b></td>";
 										print"<td>{$key->bad_low}-{$key->bad_high}</td>";
 										print"<td>{$key->mid_low}-{$key->mid_high}</td>";
 										print"<td>{$key->good_low}-{$key->good_high}</td>";
@@ -144,7 +144,7 @@
 									foreach ($json_output as $key)  
 									{	
 										print "<tr>";
-										print"<td>{$key->age_low}-{$key->age_high}</td>";
+										print"<td><b>{$key->age_low}-{$key->age_high}</b></td>";
 										print"<td>{$key->bad_low}-{$key->bad_high}</td>";
 										print"<td>{$key->mid_low}-{$key->mid_high}</td>";
 										print"<td>{$key->good_low}-{$key->good_high}</td>";

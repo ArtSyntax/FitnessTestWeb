@@ -92,17 +92,20 @@
 					ไฟล์ที่สามารถอัพโหลดได้ต้องมีนามสกุลไฟล์เป็น .csv และ encode ด้วย UTF-8 เท่านั้น เพื่อให้รองรับข้อมูลชื่อและนามสกุลที่เป็นภาษาไทย โดยข้อมูลในไฟล์มีองค์ประกอบดังนี้ id, firstname, lastname, gender, birthyear
 				</h5>
 			</div>
+			<div class="col s12" style="margin-top: 20%">
+				<h3 class="header teal-text text-lighten-2 center">ขั้นตอนการสร้างไฟล์เพื่ออัพโหลด</h3>
+			</div>
 		</div>
   
-		<div class="row" style="margin-top: 20%">
+		<div class="row" style="margin-top: 10%">			
 			<div class="col s12 m6">
 				<img class="materialboxed" width="100%" src="img/csv_excel.png">
 			</div>
 			
 			<div class="col s12 m6">
-				<h4 class="header teal-text text-lighten-2"><i><br>เปิดไฟล์ด้วย Microsoft Excel<br><br></i></h4>
+				<h4 class="header teal-text text-lighten-2"><i>1. สร้างไฟล์ด้วย Spreadsheet<br><br></i></h4>
 				<h5>
-					จะประกอบไปด้วยคอลัมน์ดังต่อไปนี้
+					เช่น โปรแกรม Microsoft Excel โดยข้อมูลประกอบไปด้วยคอลัมน์ดังต่อไปนี้
 					id, firstname, lastname, gender, birthyear<br>
 					*ห้ามบันทึกไฟล์เป็นนามสกุล .xls หรือ .xlsx เลือกเป็น .csv เท่านั้น
 				</h5>
@@ -115,7 +118,7 @@
 			</div>
 			
 			<div class="col s12 m6">
-				<h4 class="header teal-text text-lighten-2"><i><br><br>เปิดไฟล์ด้วย Notepad<br><br></i></h4>
+				<h4 class="header teal-text text-lighten-2"><i><br><br>2. เปิดไฟล์ด้วย Notepad<br><br></i></h4>
 				<h5>
 					จะประกอบไปข้อมูลในลักษณะเดียวกัน
 					แต่ข้อมูลจะถูกแบ่งกันด้วยเครื่องหมาย ,
@@ -129,9 +132,9 @@
 			</div>
 			
 			<div class="col s12 m6">
-				<h4 class="header teal-text text-lighten-2"><i><br>การ encode UTF-8<br><br></i></h4>
+				<h4 class="header teal-text text-lighten-2"><i><br>3. การ encode UTF-8<br><br></i></h4>
 				<h5>
-					เปิดไฟล์ด้วยโปรแกรม Notepad จะได้หน้าตาไฟล์เหมือนในรูปก่อนหน้า จากนั้นกดบันทึกและเลือกแถบ encodeing ด้านล่างเป็น UTF-8
+					หลังจากเปิดไฟล์ด้วยโปรแกรม Notepad ให้ทำการกดบันทึกไฟล์และเลือกแถบ encodeing ด้านล่างเป็น UTF-8
 				</h5>
 			</div>
 		</div>

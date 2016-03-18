@@ -39,7 +39,7 @@
   	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 m8 offset-m2 left">
+				<div class="col s12 left">
 					<h5 style="word-wrap: break-word;">
 						<ul class="collection with-header">
 							<li class="collection-header center teal lighten-2 white-text text-lighten-2">
@@ -75,6 +75,8 @@
 							?>
 						</ul>
 					</h5>
+					
+					<div class="divider" style="margin-top:10%"></div>
 				</div>
 			</div>
 		</div>

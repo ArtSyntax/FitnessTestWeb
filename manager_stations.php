@@ -39,7 +39,7 @@
 	<div class="container">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 m8 offset-m2 left">
+				<div class="col s12 left">
 					<h5 style="word-wrap: break-word;">
 						<ul class="collection with-header">
 							<li class="collection-header center teal lighten-2 white-text text-lighten-2">
@@ -73,6 +73,7 @@
 							?>
 						</ul>
 					</h5>
+					<div class="divider" style="margin-top:10%"></div>
 				</div>
 			</div>
 		</div>
@@ -133,7 +134,7 @@
 								</div>
 
 								<div class="col s12">
-									<br>เกณฑ์ที่ 2:
+									<br>เกณฑ์ที่ 2 (ถ้ามี):
 								</div>
 								<div class="input-field col s6 m6">
 									<input placeholder="อายุต่ำสุด (ปี)" name="m2_age_low" type="number" class="validate" >
@@ -162,7 +163,7 @@
 								</div>
 								
 								<div class="col s12">
-									<br>เกณฑ์ที่ 3:
+									<br>เกณฑ์ที่ 3 (ถ้ามี):
 								</div>
 								<div class="input-field col s6 m6">
 									<input placeholder="อายุต่ำสุด (ปี)" name="m3_age_low" type="number" class="validate" >
@@ -225,7 +226,7 @@
 								</div>
 							
 								<div class="col s12">
-									<br>เกณฑ์ที่ 2:
+									<br>เกณฑ์ที่ 2 (ถ้ามี):
 								</div>
 								<div class="input-field col s6 m6">
 									<input placeholder="อายุต่ำสุด (ปี)" name="f2_age_low" type="number" class="validate" >
@@ -254,7 +255,7 @@
 								</div>
 								
 								<div class="col s12">
-									<br>เกณฑ์ที่ 3:
+									<br>เกณฑ์ที่ 3 (ถ้ามี):
 								</div>
 								<div class="input-field col s6 m6">
 									<input placeholder="อายุต่ำสุด (ปี)" name="f3_age_low" type="number" class="validate" >
