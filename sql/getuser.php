@@ -1,4 +1,3 @@
-<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <?php
 	if($_GET){
 		$host = "localhost";
@@ -22,6 +21,8 @@
 			$rows[] = $r;
 		}
 		$jsonTable = json_encode($rows);
+		print "{\"testee\":";
 		print ($jsonTable);
+		print "}";
 	}
 ?>
