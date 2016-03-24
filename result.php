@@ -42,10 +42,10 @@
 				<div class="col s12 center">
 				<h2 class="header center teal-text text-lighten-2">Result</h2>
 					<div class="row">
-						<form class="col s12 m6 offset-m3" method="post" action="">
+						<form class="col s12 m6 offset-m3" method="post" action="show_score.php">
 							<div class="row">
 								<div class="input-field col s12">	
-									<input id="id" name="id" type="text" class="validate">
+									<input id="id" name="id" type="text" class="validate" required>
 									<label for="id">ID</label>
 								</div>
 								<div class="input-field col s12">	
@@ -65,7 +65,40 @@
 				<div class="col s12 center">
 					<h3><i class="medium material-icons brown-text">equalizer</i></h3>
 					<h4>Personal result</h4>
-					
+						<?php			
+							print "<br><br>***".$_GET['id']."***<br><br>";
+						
+							$host = "localhost";
+							$user = "art";
+							$pass = "art12345678";
+							$dbname="healthTest"; 
+							
+							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+							mysql_select_db($dbname) or die(mysql_error()); 
+							mysql_query("SET NAMES UTF8");
+							$data = mysql_query("SELECT USER.firstname, USER.lastname, TEST.test_name, STATION.station_name, 		
+											RESULT.score, STATION.station_unit, RESULT.date
+											FROM RESULT
+											INNER JOIN USER ON RESULT.user_id = USER.user_id
+											INNER JOIN TEST_STATION ON RESULT.test_station_id = TEST_STATION.test_station_id
+											INNER JOIN TEST ON TEST.test_id = TEST_STATION.test_id
+											INNER JOIN STATION ON STATION.station_id = TEST_STATION.station_id
+											WHERE USER.id = ".$_GET['id']."
+											GROUP BY STATION.station_name")
+									or die(mysql_error()); 
+									
+							$rows = array();
+							while($r = mysql_fetch_assoc($data)) {
+								$rows[] = $r;
+							}
+							
+							$jsonTable = json_encode($rows);		
+							$json_output = json_decode($jsonTable); 
+							foreach ($json_output as $key)  
+							{	
+								print "{$key->station_name}: {$key->score} {$key->station_unit}<br>";
+							} 	
+						?>
 				</div>
 			</div>
 		</div>
