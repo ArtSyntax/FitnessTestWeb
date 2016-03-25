@@ -10,7 +10,10 @@
 		
 		// get user id
 		mysql_query("SET NAMES UTF8");
-		$data = mysql_query("SELECT COUNT(USER.user_id) As FOUND, USER.user_id, USER.firstname, USER.lastname 
+		$data = mysql_query("SELECT COUNT(USER.user_id) As FOUND, 
+					IFNULL(USER.user_id,-99) AS user_id, 
+					IFNULL(USER.firstname,-99) AS firstname,
+					IFNULL(USER.lastname,-99) AS lastname
 					FROM USER 
 					INNER JOIN TEST_ENROLLMENT ON USER.user_id = TEST_ENROLLMENT.user_id 
 					INNER JOIN TEST ON TEST.test_id = TEST_ENROLLMENT.test_id			
@@ -28,14 +31,13 @@
 		//print ($jsonTable);
 		
 		$json_output = json_decode($jsonTable); 
-		$current_user_id = NULL;
 		foreach ($json_output as $key)  
 		{	
 			$current_user_id = $key->user_id;
 		} 
 		//print_r("current user id --> ".$current_user_id);
 		
-		if ($current_user_id != null){
+		if ($current_user_id != -99){
 			// add score
 			mysql_query("SET NAMES UTF8");
 			$sql_get_station_id = 

@@ -9,8 +9,8 @@
 		mysql_select_db($dbname) or die(mysql_error()); 
 		mysql_query("SET NAMES UTF8");
 		$data = mysql_query("SELECT TEST_STATION.test_station_id, STATION.station_name, STATION.station_unit, 
-						IFNULL(MIN( STANDARD.bad_low ) ,-999) AS low_score_bound, 
-						IFNULL(MAX( STANDARD.good_high ),999) AS high_score_bound
+						IFNULL(MIN( STANDARD.bad_low ) ,-200) AS low_score_bound, 
+						IFNULL(MAX( STANDARD.good_high ),200) AS high_score_bound
 						FROM TEST
 						INNER JOIN TEST_STATION ON TEST.test_id = TEST_STATION.test_id
 						INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
