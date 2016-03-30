@@ -62,12 +62,12 @@
 	<div class="container" id="person_result">
 		<div class="section">
 			<div class="row">
-				<div class="col s12 center">
+				<div class="col s12 m6 offset-m3 center">
 					<h3><i class="medium material-icons brown-text">equalizer</i></h3>
 					<h4>Personal result</h4>
-						<?php			
-							print "<br><br>***".$_GET['id']."***<br><br>";
+					<ul class="collection with-header">
 						
+						<?php									
 							$host = "localhost";
 							$user = "art";
 							$pass = "art12345678";
@@ -76,15 +76,15 @@
 							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
 							mysql_select_db($dbname) or die(mysql_error()); 
 							mysql_query("SET NAMES UTF8");
-							$data = mysql_query("SELECT USER.firstname, USER.lastname, TEST.test_name, STATION.station_name, 		
+							$data = mysql_query("SELECT USER.firstname, USER.lastname, 
+											TEST.test_name, STATION.station_name, 		
 											RESULT.score, STATION.station_unit, RESULT.date
 											FROM RESULT
 											INNER JOIN USER ON RESULT.user_id = USER.user_id
 											INNER JOIN TEST_STATION ON RESULT.test_station_id = TEST_STATION.test_station_id
 											INNER JOIN TEST ON TEST.test_id = TEST_STATION.test_id
 											INNER JOIN STATION ON STATION.station_id = TEST_STATION.station_id
-											WHERE USER.id = ".$_GET['id']."
-											GROUP BY STATION.station_name")
+											WHERE USER.id = '".$_GET['id']."' GROUP BY STATION.station_name")
 									or die(mysql_error()); 
 									
 							$rows = array();
@@ -94,11 +94,27 @@
 							
 							$jsonTable = json_encode($rows);		
 							$json_output = json_decode($jsonTable); 
+							$firsttime = true;
 							foreach ($json_output as $key)  
 							{	
-								print "{$key->station_name}: {$key->score} {$key->station_unit}<br>";
+								if($firsttime)
+								{
+									print "<li class=\"collection-header center teal lighten-2 white-text text-lighten-2\">";
+									print "<h3>{$key->firstname} {$key->lastname}</h3>";
+									print "</li>";
+									$firsttime=false;
+								}
+								
+								print "<li class=\"collection-item brown-text\"><h5>{$key->station_name}: {$key->score} {$key->station_unit}</h5></li>";
+								//print "<a href=\"#!\" class=\"collection-item brown-text\"><h5>{$key->station_name}: {$key->score} {$key->station_unit}</h5></a>";
 							} 	
+							
+							
+								
+						
 						?>
+					
+					</ul>
 				</div>
 			</div>
 		</div>

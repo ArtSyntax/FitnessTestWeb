@@ -41,8 +41,16 @@
 			// add score
 			mysql_query("SET NAMES UTF8");
 			$sql_get_station_id = 
+//					mysql_query("INSERT INTO RESULT(score, user_id, test_station_id) 
+	//						VALUES (".$_GET['score'].",".$current_user_id.",".$_GET['teststationid'].")")
+					
 					mysql_query("INSERT INTO RESULT(score, user_id, test_station_id) 
-							VALUES (".$_GET['score'].",".$current_user_id.",".$_GET['teststationid'].")")
+							SELECT ".$_GET['score'].",".$current_user_id.",".$_GET['teststationid']."
+							FROM RESULT
+							WHERE RESULT.score='".$_GET['score']."' 
+							AND RESULT.user_id ='".$current_user_id."'
+							AND RESULT.test_station_id='".$_GET['teststationid']."'
+							HAVING COUNT(*) = 0")
 					or die(mysql_error()); 
 		}
 			
