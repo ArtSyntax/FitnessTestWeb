@@ -76,15 +76,23 @@
 							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
 							mysql_select_db($dbname) or die(mysql_error()); 
 							mysql_query("SET NAMES UTF8");
-							$data = mysql_query("SELECT USER.firstname, USER.lastname, 
-											TEST.test_name, STATION.station_name, 		
-											RESULT.score, STATION.station_unit, RESULT.date
+							$data = mysql_query("SELECT T.firstname, T.lastname, T.test_name, T.station_name, score, T.station_unit, T.date
+											FROM RESULT TMP
+											INNER JOIN (
+											SELECT USER.firstname, USER.lastname, TEST.test_name, STATION.station_name, STATION.station_unit, MAX( RESULT.date ) AS date
 											FROM RESULT
-											INNER JOIN USER ON RESULT.user_id = USER.user_id
-											INNER JOIN TEST_STATION ON RESULT.test_station_id = TEST_STATION.test_station_id
-											INNER JOIN TEST ON TEST.test_id = TEST_STATION.test_id
-											INNER JOIN STATION ON STATION.station_id = TEST_STATION.station_id
-											WHERE USER.id = '".$_GET['id']."' GROUP BY STATION.station_name")
+												INNER JOIN USER ON RESULT.user_id = USER.user_id
+												INNER JOIN TEST_STATION ON RESULT.test_station_id = TEST_STATION.test_station_id
+												INNER JOIN TEST ON TEST.test_id = TEST_STATION.test_id
+												INNER JOIN STATION ON STATION.station_id = TEST_STATION.station_id
+												WHERE USER.id = '".$_GET['id']."'
+												GROUP BY RESULT.test_station_id)T
+											ON T.firstname = firstname
+											AND T.lastname = lastname
+											AND T.test_name = test_name
+											AND T.station_name = station_name
+											AND T.station_unit = station_unit
+											AND T.date = TMP.date")
 									or die(mysql_error()); 
 									
 							$rows = array();
