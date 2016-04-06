@@ -76,10 +76,11 @@
 							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
 							mysql_select_db($dbname) or die(mysql_error()); 
 							mysql_query("SET NAMES UTF8");
-							$data = mysql_query("SELECT T.firstname, T.lastname, T.test_name, T.station_name, score, T.station_unit, T.date
+							$data = mysql_query("SELECT T.user_id, T.firstname, T.lastname, T.test_name, T.station_name, score, T.station_unit, T.date
 											FROM RESULT TMP
 											INNER JOIN (
-											SELECT USER.firstname, USER.lastname, TEST.test_name, STATION.station_name, STATION.station_unit, MAX( RESULT.date ) AS date
+											SELECT USER.user_id, USER.firstname, USER.lastname, TEST.test_name, STATION.station_name, STATION.station_unit, 
+											MAX( RESULT.date ) AS date
 											FROM RESULT
 												INNER JOIN USER ON RESULT.user_id = USER.user_id
 												INNER JOIN TEST_STATION ON RESULT.test_station_id = TEST_STATION.test_station_id
@@ -87,12 +88,14 @@
 												INNER JOIN STATION ON STATION.station_id = TEST_STATION.station_id
 												WHERE USER.id = '".$_GET['id']."'
 												GROUP BY RESULT.test_station_id)T
-											ON T.firstname = firstname
+											ON T.user_id = TMP.user_id
+											AND  T.firstname = firstname
 											AND T.lastname = lastname
 											AND T.test_name = test_name
 											AND T.station_name = station_name
 											AND T.station_unit = station_unit
-											AND T.date = TMP.date")
+											AND T.date = TMP.date
+											ORDER BY T.station_name ASC")
 									or die(mysql_error()); 
 									
 							$rows = array();
@@ -113,7 +116,9 @@
 									$firsttime=false;
 								}
 								
-								print "<li class=\"collection-item brown-text\"><h5>{$key->station_name}: {$key->score} {$key->station_unit}</h5></li>";
+								print "<li class=\"collection-item brown-text\"><h5>";
+								print "{$key->station_name}: {$key->score} {$key->station_unit}";
+								print "</h5></li>";
 								//print "<a href=\"#!\" class=\"collection-item brown-text\"><h5>{$key->station_name}: {$key->score} {$key->station_unit}</h5></a>";
 							} 	
 							
@@ -134,7 +139,60 @@
 				<div class="col s12 center">
 					<h3><i class="medium material-icons brown-text">trending_up</i></h3>
 					<h4>Overall result</h4>
+					<ul class="collection with-header">
+						
+						<?php									
+							$host = "localhost";
+							$user = "art";
+							$pass = "art12345678";
+							$dbname="healthTest"; 
+							
+							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
+							mysql_select_db($dbname) or die(mysql_error()); 
+							mysql_query("SET NAMES UTF8");
+							$data = mysql_query("SELECT test_name, station_name, 
+											COUNT(station_name) AS count,
+											MAX(score) AS max_score, 
+											AVG(score)AS avg_score,  
+											MIN(score) AS min_score, station_unit FROM RESULT
+											INNER JOIN TEST_STATION ON RESULT.test_station_id=TEST_STATION.test_station_id
+											INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
+											INNER JOIN TEST ON TEST_STATION.test_id = TEST.test_id
+											WHERE test_code='AAABBB'
+											GROUP BY station_name
+											ORDER BY station_name ASC")
+									or die(mysql_error()); 
+									
+							$rows = array();
+							while($r = mysql_fetch_assoc($data)) {
+								$rows[] = $r;
+							}
+							
+							$jsonTable = json_encode($rows);		
+							$json_output = json_decode($jsonTable); 
+							$firsttime = true;
+							foreach ($json_output as $key)  
+							{	
+								if($firsttime)
+								{
+									print "<li class=\"collection-header center teal lighten-2 white-text text-lighten-2\">";
+									print "<h3>{$key->test_name}</h3>";
+									print "</li>";
+									$firsttime=false;
+								}
+								
+								print "<li class=\"collection-item brown-text\"><h5>";
+								print "{$key->station_name} - ";
+								print "MAX:{$key->max_score} ";
+								print "AVG:{$key->avg_score} ";
+								print "MIN:{$key->min_score} ";
+								print "{$key->station_unit}";
+								print "</h5></li>";
+								
+							} 	
+						?>
 					
+					</ul>
 				</div>
 			</div>
 		</div>

@@ -135,10 +135,11 @@
 									foreach ($json_output as $key)  
 									{	
 										print "<tr>";
-										print"<td>{$key->id}</td>";
-										print"<td>{$key->firstname}</td>";
-										print"<td>{$key->lastname}</td>";
-										print"<td>{$key->user_tag}</td>";
+										print "<td>{$key->id}</td>";
+										print "<td>{$key->firstname}</td>";
+										print "<td>{$key->lastname}</td>";
+										print "<td>{$key->user_tag}</td>";
+										print "<td><a href=\"http://158.108.34.49/healthtest/result.php?id={$key->id}\"><i> result </i></a></td>";
 										print "</tr>";
 									} 	
 								?>
