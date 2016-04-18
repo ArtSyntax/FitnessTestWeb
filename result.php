@@ -147,8 +147,30 @@
 							$pass = "art12345678";
 							$dbname="healthTest"; 
 							
+							
+							// get recent test code
 							$conn=mysql_connect($host,$user,$pass) or die("Can't connect");
 							mysql_select_db($dbname) or die(mysql_error()); 
+							mysql_query("SET NAMES UTF8");
+							$sql_get_test_code = 
+									mysql_query("SELECT test_code FROM TEST ORDER BY date DESC LIMIT 1")
+									or die(mysql_error()); 
+							$rows = array();
+							while($r = mysql_fetch_assoc($sql_get_test_code)) {
+								$rows[] = $r;
+							}
+							
+							$jsonTable = json_encode($rows);
+							$json_output = json_decode($jsonTable); 
+							$current_test_code = NULL;
+							foreach ($json_output as $key)  
+							{	
+								$current_test_code = $key->test_code;
+							} 
+							//print($current_test_code);
+							
+							
+							// get overall score
 							mysql_query("SET NAMES UTF8");
 							$data = mysql_query("SELECT test_name, station_name, 
 											COUNT(station_name) AS count,
@@ -158,7 +180,7 @@
 											INNER JOIN TEST_STATION ON RESULT.test_station_id=TEST_STATION.test_station_id
 											INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
 											INNER JOIN TEST ON TEST_STATION.test_id = TEST.test_id
-											WHERE test_code='AAABBB'
+											WHERE test_code='".$current_test_code."'
 											GROUP BY station_name
 											ORDER BY station_name ASC")
 									or die(mysql_error()); 
