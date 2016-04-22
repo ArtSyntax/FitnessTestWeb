@@ -103,6 +103,15 @@
 									<th data-field="firstname">ชื่อ</th>
 									<th data-field="lastname">สกุล</th>
 									<th data-field="tag_id">หมายเลขทดสอบ</th>
+									<?php
+									print 
+									"<th>
+										<a href=\"http://158.108.34.49/healthtest/allresults.php?
+										test_code=".$_GET["test_code"]."\">
+										<i> all results </i>
+										</a>
+									</th>";
+									?>
 								</tr>
 							</thead>
 						
