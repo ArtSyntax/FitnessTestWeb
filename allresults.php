@@ -30,44 +30,48 @@
 			//print "{$key->id} <br>";
 		} 
 		
-		
-		
-		// count station in test
-		mysql_query("SET NAMES UTF8");
-		$sql_count_station = 
-				mysql_query("SELECT STATION.station_name, STATION.station_unit 
-						FROM TEST
-						INNER JOIN TEST_STATION ON TEST.test_id = TEST_STATION.test_id
-						INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
-						WHERE TEST.test_code = '".(string)$_GET['test_code']."'
-						ORDER BY STATION.station_name ASC")
-				or die(mysql_error()); 
-		$rows = array();
-		while($r = mysql_fetch_assoc($sql_count_station)) {
-			$rows[] = $r;
-		}
-		
-		$jsonTable = json_encode($rows);
-		$json_output = json_decode($jsonTable); 
-		print "id,ชื่อ,นามสกุล,เพศ,อายุ";
-		$count_station = 0;
-		$station = array();
-		foreach ($json_output as $key)  
-		{	
-			print ",{$key->station_name}({$key->station_unit})";
-			array_push($station,"{$key->station_name}");
-			$count_station++;
-		} 
-		//print_r($count_station);
-		
-		
-
-		
-		// get all results
 		if(empty($testee)){
 			print "ไม่พบข้อมูลการทดสอบ";
 		}
-		else{			
+		else{
+			// count station in test
+			$enable_bmi = -1;
+			mysql_query("SET NAMES UTF8");
+			$sql_count_station = 
+					mysql_query("SELECT STATION.station_name, STATION.station_unit 
+							FROM TEST
+							INNER JOIN TEST_STATION ON TEST.test_id = TEST_STATION.test_id
+							INNER JOIN STATION ON TEST_STATION.station_id = STATION.station_id
+							WHERE TEST.test_code = '".(string)$_GET['test_code']."'
+							ORDER BY STATION.station_name ASC")
+					or die(mysql_error()); 
+			$rows = array();
+			while($r = mysql_fetch_assoc($sql_count_station)) {
+				$rows[] = $r;
+			}
+			
+			$jsonTable = json_encode($rows);
+			$json_output = json_decode($jsonTable); 
+			print "id,ชื่อ,นามสกุล,เพศ,อายุ";
+			$count_station = 0;
+			$station = array();
+			foreach ($json_output as $key)  
+			{	
+				print ",{$key->station_name}({$key->station_unit})";
+				array_push($station,"{$key->station_name}");
+				if ($key->station_name == "ส่วนสูง" || $key->station_name == "น้ำหนัก"){
+					$enable_bmi++;
+				}
+				$count_station++;
+			} 
+			if ($enable_bmi == 1){
+				print ",BMI(กิโลกรัม/เมตร^2)";
+			}
+			//print_r($count_station);
+			
+		
+			
+			// get all results	
 			foreach($testee as $person) {
 				$firsttime = true;
 				if($firsttime){	
@@ -149,19 +153,30 @@
 				
 				$firsttime = true;
 				$count=0;
+				$weight=0;
+				$height=0;
 				foreach ($json_output as $key)  
 				{	
-					
-					//print "+ {$key->station_name}={$key->score} + ";
-										
 					if ($key->score != null){
 						print ",{$key->score}";
 					}
 					else{
 						print ",-";
 					}
+					if ($key->station_name == "น้ำหนัก"){
+						$weight = floatval($key->score);
+					}
+					if ($key->station_name == "ส่วนสูง"){
+						$height = floatval($key->score);
+					}
 					$count++;
 				} 
+				if ($enable_bmi == 1 && $weight!=0 && $height!=0){
+					print ",".round(($weight/(pow(($height/100.0),2))),2);
+				}
+				else{
+					print ",-";
+				}
 			}
 		}
 	}
