@@ -127,13 +127,13 @@
 									$enable_bmi++;
 								}
 								print "<li class=\"collection-item brown-text\"><h5>";
-								print "{$key->station_name}: {$key->score} {$key->station_unit}";
+								print "<b>{$key->station_name}:</b> {$key->score} {$key->station_unit}";
 								print "</h5></li>";
 							} 	
 							if ($enable_bmi == 1 && $weight!=0 && $height!=0){
 								$bmi = round(($weight/(pow(($height/100.0),2))),2);
 								print "<li class=\"collection-item brown-text\"><h5>";
-								print "BMI: ".$bmi." กิโลกรัม/เมตร^2";
+								print "<b>ดัชนีมวลกาย:</b> ".$bmi." กิโลกรัม/เมตร^2";
 								print "</h5></li>";
 							}
 							
@@ -223,10 +223,10 @@
 								}
 								
 								print "<li class=\"collection-item brown-text\"><h5>";
-								print "{$key->station_name} - ";
-								print "MAX:{$key->max_score} ";
-								print "AVG:{$key->avg_score} ";
-								print "MIN:{$key->min_score} ";
+								print "<b>{$key->station_name}</b> - ";
+								print "สูงสุด:{$key->max_score} ";
+								print "เฉลี่ย:{$key->avg_score} ";
+								print "ต่ำสุด:{$key->min_score} ";
 								print "{$key->station_unit}";
 								print "</h5></li>";
 								
