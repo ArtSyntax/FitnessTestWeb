@@ -106,6 +106,9 @@
 							$jsonTable = json_encode($rows);		
 							$json_output = json_decode($jsonTable); 
 							$firsttime = true;
+							$enable_bmi = -1;
+							$weight=0;
+							$height=0;
 							foreach ($json_output as $key)  
 							{	
 								if($firsttime)
@@ -115,19 +118,35 @@
 									print "</li>";
 									$firsttime=false;
 								}
-								
+								if ($key->station_name == "น้ำหนัก"){
+									$weight = floatval($key->score);
+									$enable_bmi++;
+								}
+								if ($key->station_name == "ส่วนสูง"){
+									$height = floatval($key->score);
+									$enable_bmi++;
+								}
 								print "<li class=\"collection-item brown-text\"><h5>";
 								print "{$key->station_name}: {$key->score} {$key->station_unit}";
 								print "</h5></li>";
-								//print "<a href=\"#!\" class=\"collection-item brown-text\"><h5>{$key->station_name}: {$key->score} {$key->station_unit}</h5></a>";
 							} 	
+							if ($enable_bmi == 1 && $weight!=0 && $height!=0){
+								$bmi = round(($weight/(pow(($height/100.0),2))),2);
+								print "<li class=\"collection-item brown-text\"><h5>";
+								print "BMI: ".$bmi." กิโลกรัม/เมตร^2";
+								print "</h5></li>";
+							}
 							
-							
-								
-						
 						?>
 					
 					</ul>
+
+				</div>
+				
+				<div class="col 12 s12 center">
+					<p>
+						<h5><a class="blue-text" href="http://goo.gl/forms/YU1V8RnkfQ"><u><i>ประเมินการใช้งานระบบ</i></u></a></h5>
+					</p>
 				</div>
 			</div>
 		</div>
