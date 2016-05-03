@@ -18,110 +18,12 @@
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<style type="text/css">${demo.css}</style>	
-	<script type="text/javascript">
-		$(function () {
+	<script src="js/graph_score.js" charset="UTF-8"></script>
+	<script src="js/graph_queue.js" charset="UTF-8"></script>
+	
+	<script>var data = <?php echo $jsonTable; ?>; //sent json to js </script>
+	<script>document.write('|'+data+'|');</script>
 
-			$('#radar').highcharts({
-
-				chart: {
-					polar: true,
-					type: 'line'
-				},
-
-				title: {
-					text: 'Result',
-					x: -80
-				},
-
-				pane: {
-					size: '80%'
-				},
-
-				xAxis: {
-					categories: ['ส่วนสูง',
-								'น้ำหนัก',
-								'BMI',
-								'ดันพื้น',
-								'ลุก-นั่ง',
-								'วิ่ง 50  ม.'],
-					tickmarkPlacement: 'on',
-					lineWidth: 0
-				},
-
-				yAxis: {
-					gridLineInterpolation: 'polygon',
-					lineWidth: 0,
-					min: 0
-				},
-
-				tooltip: {
-					shared: true,
-					pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
-				},
-
-				legend: {
-					align: 'right',
-					verticalAlign: 'top',
-					y: 70,
-					layout: 'vertical'
-				},
-
-				series: [
-					{
-						name: 'Your Score',
-						data: [43, 19, 60, 35, 17, 10],
-						pointPlacement: 'on'
-					}, 
-					{
-						name: 'Mean Score',
-						data: [50, 39, 42, 31, 26, 14],
-						pointPlacement: 'on'
-					}
-				]
-
-			});
-		});
-		
-		
-		$(function () {
-		$('#stack').highcharts({
-			chart: {
-				type: 'column'
-			},
-			title: {
-				text: 'Stacked column chart'
-			},
-			xAxis: {
-				categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-			},
-			yAxis: {
-				min: 0,
-				title: {
-					text: 'Total fruit consumption'
-				}
-			},
-			tooltip: {
-				pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
-				shared: true
-			},
-			plotOptions: {
-				column: {
-					stacking: 'percent'
-				}
-			},
-			series: [{
-				name: 'John',
-				data: [5, 3, 4, 7, 2]
-			}, {
-				name: 'Jane',
-				data: [2, 2, 3, 2, 1]
-			}, {
-				name: 'Joe',
-				data: [3, 4, 4, 2, 5]
-			}]
-		});
-	});
-	</script>
 </head>
 
 <body>
@@ -241,12 +143,12 @@
 		</div>
 	</div>
 	
-	<!-- radar chart -->
+	<!-- score chart -->
 	
 	<div class="row">
 		<div class="col s12 m6 offset-m3 center">
 		
-			<div id="radar" style="min-width: 100%; max-width: 600px; height: 400px; margin: 0 auto"></div>
+			<div id="score" style="min-width: 100%; max-width: 600px; height: 400px; margin: 0 auto"></div>
 		</div>
 	</div>
 	
@@ -342,7 +244,7 @@
 					<h3><i class="medium material-icons brown-text">loop</i></h3>
 					<h4>Execution</h4>
 					
-					<div id="stack" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+					<div id="queue" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 				</div>
 			</div>
